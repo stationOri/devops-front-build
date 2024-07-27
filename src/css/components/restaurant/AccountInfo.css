@@ -1,0 +1,374 @@
+.forAccinfoAlign {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AccInfoTotalWrapper {
+  width: 70%;
+  margin: 50px 0 100px;
+  border: 1px solid #dddddd;
+  padding: 20px 30px;
+}
+
+.ForImgBackground {
+  width: 200px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease; /* 전환 효과 (선택 사항) */
+}
+
+.ForImgBackground.hidden {
+  display: none; /* 선택된 이미지가 없을 때 미리보기 박스 숨기기 */
+}
+
+/* 헤더 */
+
+.Accinfo-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.accinfo-bold {
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.accinfo-hint {
+  color: #666666;
+  font-size: 15px;
+}
+
+/* 점포운영 */
+
+.accinfo-bigtext {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.accinfo-hintText {
+  color: #555555;
+}
+
+.Wrppaerforplaintext {
+  margin: 9px 0;
+}
+
+.accinfo-file-wrapper {
+  width: 40%;
+}
+
+/* .ForImgBackground {
+  border: 1px solid #dddddd;
+} */
+
+.Wrppaerforinput {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.accinfo-plain-textarea {
+  width: 99%;
+  height: 50px;
+  border: 1px solid #dddddd;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.addressWrapperinner {
+  display: flex;
+}
+
+.keyWrapperUpper {
+  display: flex;
+  align-items: end;
+  justify-content: flex-start;
+}
+.checkBoxWrapper {
+  margin-right: 20px;
+}
+
+.checkboxes label{
+  margin-right: 8px;
+}
+
+.holidayrun {
+  margin-right: 20px;
+}
+
+.breaktime label {
+  margin-right: 8px;
+}
+
+.holidayrun label {
+  margin-right: 8px;
+}
+.rest-date-first {
+  display: flex;
+  margin: 10px 0;
+}
+.temp-holiday-firstrow {
+  display: flex;
+  align-items: end;
+  margin: 10px 0;
+}
+
+
+.rest-date-last div {
+  margin-right: 10px;
+}
+
+.rest-date-last {
+  display: flex;
+  margin: 10px 0;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: end;
+}
+
+.peakenrollbtn {
+
+}
+
+.enrollbutton {
+  height: 37px;
+  padding: 0 15px;
+  background-color: #ff8a00;
+  color: white;
+  border: none;
+}
+
+
+.addressdetailWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.select-box-keyword {
+  width: 100%;
+}
+
+.Wrppaerforinput > input {
+  border: 1px solid #dddddd;
+  height: 33px;
+  border-radius: 7px;
+}
+
+.revdivider {
+  margin: 30px 0;
+  border: 1px solid #dddddd;
+}
+
+.accinfo-button-keyword {
+  margin: 10px;
+  height: 38px;
+  width: 100px;
+  padding: 10px;
+  border: none;
+  background-color: #ff8a00;
+  color: white;
+}
+
+.revSetting-first {
+  display: flex;
+}
+
+.peakWrapper-first {
+  display: flex;
+  justify-content: flex-start;
+  align-items: end;
+  margin: 5px 0 20px;
+}
+
+.keywordWrapperforSelect {
+  width: 30%;
+}
+
+.rest-revwait {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0 30px;
+}
+
+.revSetting-second {
+  margin: 10px 0;
+}
+
+.postnuminput {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  height: 33px;
+}
+
+.addressSearchBtn {
+  height: 37px;
+  border: none;
+  background-color: #ff8a00;
+  color: white;
+  margin: 0 10px;
+}
+
+.revMoneyCheckboxWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputformoney {
+  height: 33px;
+  width: 150px;
+  margin: 5px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+}
+
+.rest-running {
+  width: 100%;
+}
+
+.select-box-revdetail, .accinfo-plain-input-rev {
+  width: 90%;
+}
+
+.Wrppaerforinput-address {
+  width: 48%;
+}
+
+.input-address-box {
+  height: 33px;
+  border: 1px solid #dddddd;
+  width: 97%;
+  border-radius: 5px;
+}
+
+.editCompleteBtnWrapper {
+  margin: 20px 0 10px;
+  width: 100%;
+}
+
+.ediCompleteBrn {
+  width: 100%;
+  height: 35px;
+  border: none;
+  background-color: #ff8a00;
+  color: white;
+}
+
+.temp-holiday-secondrow {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.TrashcanImg {
+  width: 20px;
+}
+
+.holiday-item {
+  display: flex;
+  width: 250px;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  margin: 5px 5px 5px 0;
+  padding: 5px 10px;
+}
+
+
+.peakenrollbtn {
+  height: 37px;
+  padding: 5px 20px;
+  border: none;
+  background-color: #ff8a00;
+  color: white;
+}
+
+.peak-item {
+  display: flex;
+  width: 450px;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  margin: 5px 5px 5px 0;
+  padding: 5px 10px;
+}
+
+.peakWrapper-second {
+  margin-bottom: 15px;
+}
+
+.keyword-item {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  margin: 5px 10px 5px 0;
+  padding: 5px 10px;
+}
+.accinfo-button-keyword:disabled {
+  background-color: #ffb969; /* 비활성화 상태에서 버튼 색상 */
+  color: white;
+  cursor: not-allowed;
+
+}
+
+.keyworditemsWrapper {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.runningTimeenroll {
+  border: none;
+  background-color: #ff8a00;
+  height: 37px;
+  padding: 0 10px;
+  color: white;
+
+}
+
+.accinfo-restname {
+  font-weight: 400;
+
+}
+
+.opentimecontWrapper {
+  display: flex;
+  max-width: 500px;
+  justify-content: space-between;
+  height: 38px;
+  align-items: center;
+  border: 1px solid #dddddd;
+  padding: 0 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.opentimeleft {
+  display: flex;
+}
+
+.highlightDay {
+  font-weight: 600;
+  width: 45px;
+}
+
+.opentime1{
+  width: 100px;
+}
+
+.opentime2, .opentime3 {
+  margin-left: 5px;
+}

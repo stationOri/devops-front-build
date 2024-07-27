@@ -1,0 +1,6 @@
+.admin--user-control-root {
+  display: flex;
+  align-items: start;
+  justify-content: space-evenly;
+  padding: 0 20px;
+}

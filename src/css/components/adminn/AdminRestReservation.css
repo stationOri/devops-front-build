@@ -1,0 +1,61 @@
+.tableforadminres {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableforadminres th,
+.tableforadminres td {
+  border: 2px solid #dddddd;
+  padding: 8px;
+}
+
+.tableforadminres th {
+  text-align: center;
+  font-size: 14px;
+}
+
+.adminrescancel {
+  font-size: 12px;
+}
+
+.tableforadminres td {
+  text-align: left;
+  font-size: 12px;
+  height: 28px;
+}
+
+.adminrescancel {
+  padding: 5px 10px;
+  background-color: #4E95D9;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.restresTableWrapper {
+  padding: 0;
+  margin: 10px 0;
+}
+
+.restResTableWrapper {
+  margin: 20px 0;
+}
+
+.cnforbgc th,
+.cnforbgc {
+  background-color: #f8f8f8;
+}
+
+.rescheckboxWrapper {
+  display: flex;
+}
+
+.rescheckboxWrapper input {
+  margin: 0 10px;
+}
+
+.ressecondrowWRapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,33 @@
+.sidebar {
+  width: 90%;
+  border-right: 1px solid #e1e1e18f;
+}
+
+.search-bar input {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 0 0 0.5px #e1e1e1;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+}
+
+.chat-list {
+  width: 90%;
+  padding: 0;
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #e1e1e1;
+  cursor: pointer;
+}
+
+.chat-img{
+  width: 60px;
+  margin-right: 20px;
+}

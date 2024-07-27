@@ -1,0 +1,49 @@
+.restacceptrootWrapper {
+  width: 95%;
+  padding: 0 20px;
+  border: 1px solid #dddddd;
+  box-shadow: 5px 5px 10px #dddddd;
+  border-radius: 10px;
+}
+
+
+.restAcceptbfWrapper{
+  padding: 20px 0 10px;
+}
+
+.restacceptTitle {
+  margin: 0;
+  padding: 0;
+  color: #333333;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.restacceptP {
+  margin: 0;
+  padding: 0;
+  color: #888888;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.restacceptTableWrapper {
+  padding: 10px 0 20px;
+  height: 390px;
+}
+
+.restacceptRowWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+}
+
+.restacceptbutton {
+  border: none;
+  background-color: #4E95D9;
+  color: white;
+  height: 25px;
+  width: 70px;
+}

@@ -1,0 +1,22 @@
+.reviewinputBox {
+  width: 98%;
+  height: 130px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+}
+.starRatingWrapper {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.star {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #d3d3d3; /* Unfilled star color */
+  transition: color 0.2s;
+}
+
+.star.filled {
+  color: #ffc107; /* Filled star color */
+}

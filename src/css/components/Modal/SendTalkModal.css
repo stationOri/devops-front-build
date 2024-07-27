@@ -1,0 +1,62 @@
+.talkModal {
+  width: 320px;
+  position: fixed; 
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px gray;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 20px;
+}
+
+.talkmodalUpperBox {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.talkmodalLowerBox {
+  margin: 20px 0;
+}
+
+.explanationTextintalk {
+  font-size: 13px;
+  color: #3f3f3f;
+  margin-bottom: 3px;
+}
+
+.talkTextInput {
+  width: 100%;
+  height: 150px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  white-space: pre-wrap;  /* 줄 바꿈을 유지 */
+  overflow-wrap: break-word; 
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.timeSelectBox {
+  outline: none;
+  font-size: 16px;
+}
+
+.pickerdate {
+  width: 100%;
+  padding-left: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.pickerdate:focus {
+  outline: none;
+}
+
+.timeslotsize {
+  width: 130px;
+}

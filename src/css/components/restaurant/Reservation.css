@@ -1,0 +1,332 @@
+.UpperBoxRestheight {
+  width: 100%;
+  display: flex;
+  height: 230px;
+  justify-content: space-between;
+}
+
+.upperboxleft {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.upperboxright {
+  width: 48%;
+}
+
+.rest-content-boxwai {
+  width: 100%;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px #ececec;
+  margin-top: 15px;
+}
+
+.spanforcounting {
+  color: #ff8a00;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.rest-content-boxwai div {
+  font-size: 15px;
+}
+
+.reserinfobox {
+  width: 90%;
+  min-height: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.resernoinfobox{
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  color: #555555;
+}
+
+.rowWrapper {
+  display: flex;
+  width: 100%;
+}
+.forRow {
+  width: 25%;
+}
+.innerslot {
+  margin: 0 5px;
+}
+
+.innerHrLinewai {
+  border-top: 1px solid #ff8a00;
+  width: 90%;
+  margin: 10px 0;
+}
+
+.spanforOrangerev {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ff8a00;
+}
+
+.spanfornoshow {
+  font-size: 22px;
+  font-weight: 500;
+  color: #ff8a00;
+}
+
+.spanformoney {
+  font-size: 30px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.accountbox {
+  cursor: pointer;
+  font-size: 14px;
+  margin: 10px 0;
+  text-decoration: underline;
+}
+
+.dateselectWrapper {
+  margin: 15px 0 20px;
+  display: flex;
+}
+
+.phoneicon {
+  width: 12px;
+  height: 18px;
+  margin-right: 5px;
+}
+.phoneWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phoneText {
+  cursor: pointer;
+}
+
+.forspacingInrev {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dateborderWrapper {
+  width: 145px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  height: 35px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.calphoto {
+  width: 28px;
+  margin: 0 5px;
+}
+
+.findbtn {
+  border: none;
+  background-color: #ff8a00;
+  color: white;
+  height: 35px;
+  width: 60px;
+  margin: 0 10px;
+}
+
+.tableBorder {
+  border-bottom: 2px solid #dddddd;
+  border-right: 2px solid #dddddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.tableBorderyes {
+  border-right: 2px solid #dddddd;
+  border-bottom: 2px solid #dddddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.tableBorderyesend {
+  border-bottom: 2px solid #dddddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.tableBorderend {
+  border-bottom: 2px solid #dddddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.bookingtable {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+}
+
+.colWarpper {
+  width: 25%;
+}
+
+.insmallrev {
+  border: none;
+  height: 35px;
+  margin-bottom: 0;
+}
+
+.insmallrev:focus {
+  box-shadow: none;
+}
+
+.rowWrapper2 {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #555555;
+}
+
+.rowWrapper2 button {
+  margin-top: 20px;
+  color: #555555;
+  border: 1px solid #c3c3c3;
+
+  margin-bottom: 30px;
+}
+/* 
+.lowerboxBorder{
+  border-bottom: 2px solid #dddddd;
+  border-right: 2px solid #dddddd;
+} */
+
+.reservationBox {
+  display: flex;
+  width:99%;
+  height: 60px;
+}
+
+.firstElement {
+  border-right: 2px solid #dddddd;
+  border-left: 2px solid #fff;
+  /* border-top: none; */
+}
+
+.secondElement, .thirdElement {
+  border-right: 2px solid #dddddd;
+  border-left: 2px solid #dddddd;
+  margin: -1px;
+}
+
+.fourthElement {
+  border-left: 2px solid #dddddd;
+  border-right: 2px solid #fff;
+  margin: -1px;
+}
+
+.timebox {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px solid #dddddd;
+}
+
+.reservationDetail {
+  display: flex;
+  width: 70%;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+.boxforicon {
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.innericonbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+}
+
+.cnfornumber {
+  font-size: 12px;
+  color: #555555;
+}
+
+.notNewLine {
+  border-top: 2px solid #fee7cc;
+}
+
+.iconforrev {
+  width: 12px;
+  height: 12px;
+  margin-right: 2px;
+}
+
+.humanicon {
+  width: 10px;
+  height: 10px;
+  margin-right: 3px;
+}
+
+.newLine { 
+  border-top: 2px solid #dddddd;
+}
+
+.reservationdetailed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btninRestRev {
+  border: 2px solid #ff8a00;
+  margin: 0 2px;
+  background-color: #FEF3E7;
+}
+
+.lastElement {
+  border-bottom: 2px solid #dddddd;
+}
+
+.bookingtableno, .bookingtable {
+  width: 100%;
+  box-shadow: 0 0 10px #dddddd;
+  border-radius: 5px;
+}
+
+.firstrevbox {
+  border-top: none;
+}

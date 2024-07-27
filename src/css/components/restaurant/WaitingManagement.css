@@ -1,0 +1,143 @@
+.WrapperWithoutBorder {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0;
+  width: 75%;
+  /* border: 1px solid #dddddd; */
+  padding: 30px;
+}
+
+.UpperBoxRest {
+  width: 100%;
+
+}
+
+.rest-text {
+  display: flex;
+  align-items: center;
+}
+
+.rest-text-logo {
+  height: 23px;
+  margin-right: 5px;
+}
+
+.rest-bold-text {
+  margin: 0;
+  font-size: 22px;
+  text-decoration: underline;
+  font-weight: bold;
+  
+}
+.betweenLineContent {
+  margin: 0 20px;
+  padding: 0;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+.spanforOrange {
+  color: #ff8a00;
+}
+.boxforhinttext {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.spanforRed {
+  font-weight: 300;
+  color: red;
+  font-size: 12px;
+}
+
+.waitinExText {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+.rest-right-box {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+
+.rest-cnotent-box {
+  width: 100%;
+  box-shadow: 5px 5px 5px #dddddd;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerHrLine {
+  width: 95%;
+  margin: 20px 15px;
+  border-top: 1px solid #ff8a00;
+}
+
+.rest-button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rest-button-box > button {
+  margin: 0 5px 5px;
+}
+
+.btnforBlackBorder {
+  background-color: #f89C5B;
+  border: 2px solid black;
+}
+
+.btnforOrange {
+  border: 2px solid #f89C5B;
+  background-color: #FEF3E7;
+}
+
+.waitingTable {
+  margin: 20px 0;
+  width: 100%;
+  /* border: 1px solid #dddddd; */
+  border-collapse: collapse; 
+  border-spacing: 0;
+}
+
+.fortablebgc {
+  height: 50px;
+  background-color: #dddddd;
+}
+
+.waitingTable td {
+  text-align: center;
+  height: 40px;
+}
+
+.requestBtnOrange {
+  border: 2px solid #f89C5B;
+  background-color: #FEF3E7;
+  margin: 0 5px;
+}
+
+.waitingTable tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.LowerBoxRest {
+  margin-top: 20px;
+}

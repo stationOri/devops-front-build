@@ -1,0 +1,47 @@
+.rest-owner-info-container{
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+}
+
+.rest-mod-btn-box{
+  display: flex;
+  align-items: center;
+}
+
+.mod-btn{
+  width: 150px;
+  height: 40px;
+  background-color: #ff8a00;
+  color: white;
+  border: 1px solid #ff8a00;
+  border-radius: 7px;
+  margin: 0px 10px;
+  cursor: pointer;
+}
+.mod-btn:hover{
+  background: #ffffff;
+  color: #ff8a00;
+}
+
+.mod-btn-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.rest-mod-btn-wrap{
+  display: flex;
+  justify-content: space-between;
+}
+
+.rest-review-report-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

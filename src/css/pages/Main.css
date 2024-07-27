@@ -1,0 +1,169 @@
+.usermainWrapper {
+  display: flex;
+  width: 100%;
+}
+
+.behindsidebar {
+  width: 170px;
+}
+
+.behindsidebar.collapsed {
+  width: 50px;
+}
+
+.maincontentsWrapper {
+  display: flex;
+  width: 100%;
+}
+
+.innercontentsWrapper  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1; 
+  /* width: 100%; */
+}
+
+.mainSidebar {
+  width: 170px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.mainSidebar.collapsed {
+  width: 80px;
+}
+
+.carouselContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 지도 */
+
+.mainMapWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 75%;
+}
+
+.mainRestDetailWrapper {
+  width: 50%;
+  padding-top: 20px;
+}
+
+.divforalignment {
+  margin-right: 20px;
+  height: 100%;
+  border-radius: 40px;
+  background-color: #f49a3314;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.topbox {
+  display: flex;
+  margin-top: 20px;
+  justify-content: start;
+  width: 90%;
+}
+
+
+.mainRestExPhoto{
+  width: 220px;
+  height: 150px;
+  border-radius: 20px;
+}
+
+.reviewleft {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.maincardrestname {
+  font-size: 20px;
+  margin: 3px 0;
+}
+
+.maincardKeywordWrapper {
+  display: flex;
+  width:100%;
+  margin: 2px 0;
+}
+
+.mainkeywordbox {
+  padding: 2px 10px;
+  border-radius:10px;
+  border: 1px solid #c5c4c4;
+  margin-right: 5px;
+  font-size: 13px;
+}
+
+.mainreviewCardWrapper {
+  display: flex;
+}
+
+/* 핫 */
+
+.hotTrendingRestWrapper {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 50px 0;
+}
+
+.hotTrendingHeader {
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.rankingWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.rankingLeft {
+  display: flex;
+  align-items: center;
+}
+
+.RankingIndex {
+  font-size: 40px;
+  font-weight: 400;
+  margin: 0 10px;
+}
+
+.rankPhoto {
+  width: 180px;
+  height: 130px;
+  border-radius: 20px;
+  margin: 0 20px 0 10px;
+}
+
+.MainKeywordWrapperMini {
+  display: flex;
+}
+
+.MainRestName {
+  font-size: 20px;
+}
+
+.innerKeywords {
+  font-size: 14px;
+  margin: 10px 5px;
+}

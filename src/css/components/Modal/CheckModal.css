@@ -1,0 +1,81 @@
+#checkbackgroundoff {
+  width: 100%;
+  height: 100%;
+  background-color: lightgray;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  display: none;
+}
+
+#checkbackgroundon {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+}
+
+.checkModal {
+  width: 250px;
+  position: fixed; 
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px gray;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+#checkhide {
+  display: none;
+}
+
+#checkshow {
+  display: flex;
+}
+.checkboldText{
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+.checkModalContent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.checkmodalline{
+  width: 95%;
+  border-top: 1px solid #FF8A00;
+}
+
+.checkhintText{
+  font-size: 13px;
+  margin: 5px 0;
+  color: #555555;
+  padding: 0 20px;
+}
+
+.checkModalBtn{
+  background: #FF8A00;
+  width: 85%;
+  height: 30px;
+  border: none;
+  color: white;
+  margin-top: 25px;
+}
+
+input {
+  padding-left: 8px;
+}

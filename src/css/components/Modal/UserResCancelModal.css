@@ -1,0 +1,31 @@
+.userCancelModalyesBtn {
+    width: 49%;
+    background-color: #ff8a00;
+    border: none;
+    color: white;
+  }
+.userCancelModalnoBtn {
+    width: 49%;
+    border: 1px solid #ff8a00;
+    color: #ff8a00;
+}  
+.userCancelhintText {
+    text-align: center;
+    font-size: 13.5px;
+    margin: 10px 0 5px;
+  }
+.userCancelhintText2 {
+text-align: left;
+font-size: 12px;
+margin: 10px 0 0;
+}
+.userCancelhintText3 {
+    text-align: center;
+    font-size: 12px;
+    margin: 2px 0 0;
+}
+.line2 {
+    height: 0.4px;
+    background-color: #ff8a00;
+    margin: 5px 0 0; /* 여백 조정 */
+}

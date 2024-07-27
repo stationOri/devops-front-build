@@ -1,0 +1,33 @@
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.paginationButton {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+}
+
+.paginationButton.active {
+  background-color: #4E95D9;
+  color: white;
+}
+
+.paginationButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.paginationIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.forrightarrow {
+  transform: rotate(180deg);
+}

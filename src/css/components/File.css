@@ -1,0 +1,48 @@
+.contentFileWrapper {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  flex-direction: row;
+  width: 100%;
+}
+
+.file-name {
+  width: 70%;
+  height: 28px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #888888;
+  padding-left: 10px;
+}
+
+.fileWrapper {
+  position: relative;
+}
+
+.file-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+
+.fileselect {
+  justify-content: center;
+  width: 30%;
+  height: 28px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}

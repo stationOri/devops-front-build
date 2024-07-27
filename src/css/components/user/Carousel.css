@@ -1,0 +1,125 @@
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carouselSlide {
+  min-width: 800px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  display: none;
+  transform: translateX(100%) scale(0.8);
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.carouselSlide.active {
+  transform: translateX(0%) scale(1);
+  z-index: 2;
+  display: block;
+}
+
+.carouselWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backgroundImage {
+  width: 800px;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  border-radius: 50px;
+}
+
+.carouselcontents {
+  background-color: #ffffff80;
+  width: 200px;
+  height: 150px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 520px;
+  top: 230px;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.carouselcontents > div {
+  width: 200px;
+}
+
+.carouselname {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.carouselrating {
+  display: flex;
+  justify-content: center;
+  height: 30px;
+}
+
+.carouseladdress {
+  font-size: 13px;
+  display: block;
+  text-align: center;       
+  white-space: normal;      
+  overflow: hidden;        
+  word-wrap: break-word;
+  margin: 3px 0;
+}
+
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.carouselButton {
+  background: none;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.carouselIndicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: #717171;
+}

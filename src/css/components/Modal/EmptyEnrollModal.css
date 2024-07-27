@@ -1,0 +1,178 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  width: 600px;
+  height: 580px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* 모달 내부 요소들이 위치할 기준 */
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal-body{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.empty-modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.empty-icon {
+  width: 50px;
+  height: 65px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.empty-enroll-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.close-btn-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.close-btn img {
+  width: 25px;
+  height: 25px;
+}
+
+.horizon{
+  width: 95%;
+  height: 0.5px;
+  background-color: #FF8A00;
+  margin: 10px;
+}
+
+.empty-enroll-rest{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-enroll-rest-name{
+  font-size: 23px;
+  margin: 10px;
+  text-align: center;
+}
+
+.rest-icon{
+  width: 25px;
+  height: 25px;
+}
+
+.empty-enroll-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 18px;
+}
+
+.empty-enroll-content-text{
+  font-size: 15px;
+}
+
+.empty-enroll-btn{
+  width: 90px;
+  height: 40px;
+  color: #ffffff;
+  border: 1px solid #ff8a00;
+  border-radius: 7px;
+  margin: 0px 3px;
+  background: #ff8a00;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.empty-btn-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 18px;
+}
+
+.empty-enroll-picker{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+
+}
+
+.empty-enroll-date-time{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.empty-enroll-date, .empty-enroll-time{
+  margin: 0px 10px;
+}
+
+.picker {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.picker:focus {
+  border-color: #F89C5B;
+  outline: none;
+  box-shadow: 0 0 5px rgba(248, 156, 91, 0.5);
+}
+
+.picker::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.guest-picker-btn{
+  margin: 10px;
+}
+
+.selected-guest{
+  font-size: 17px;
+  color: #ff8a00;
+}

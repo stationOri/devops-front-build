@@ -1,0 +1,157 @@
+.sideBarWrapper {
+  width: 170px;
+  height: 100vh;
+  border-right: 1px solid #dddddd;
+  border-radius: 5px 10px 10px 5px;
+  position: fixed; /* fixed로 변경하여 사이드바를 고정 */
+  top: 0; /* 상단에 고정 */
+  left: 0; /* 좌측에 고정 */
+  background-color: white; /* 사이드바의 배경색 지정 */
+  z-index: 1000; /* 다른 요소 위에 위치하도록 z-index 설정 */
+}
+
+.sideBarWrapper.collapsed {
+  width: 50px;
+}
+
+.sidebarText.hidden {
+  display: none;
+}
+
+.extendbtn {
+  position: absolute;
+  padding: 3px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sideBarWrapper.extended .extendbtn {
+  left: 160px;
+  top: 70px;
+}
+
+.sideBarWrapper.collapsed .extendbtn {
+  left: 40px;
+  top: 70px;
+}
+
+.sidebaraskButton {
+  position: absolute;
+  left: 25px;
+  bottom: 30px;
+  padding: 0 20px;
+}
+
+.extendbtnImg {
+  width: 10px;
+}
+
+.sideBarHeader {
+  height: 120px;
+  background: #fafafa;
+  border-bottom: 1px solid #dddddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: start;
+}
+
+.iconWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.sidebarLogo {
+  width: 20px;
+}
+
+.guestText {
+  margin-left: 10px;
+}
+
+.searchLogo {
+  width: 15px;
+}
+
+.sidebarsearchboxWrapper {
+  width: 140px;
+  background-color: #FFFFFF;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+.sidebarsearchbox {
+  border: none;
+  color: #dddddd;
+  width: 120px;
+}
+
+.sidebarsearchbox:focus {
+  outline: none;
+}
+
+.sidebarContent {
+  margin-left: 20px;
+}
+
+.sidebaraskButton {
+  margin-top: 20px;
+  color: #FF8A00;
+  border: 1px solid #FF8A00;
+}
+
+.sidebarRow {
+  display: flex;
+  margin: 20px 0;
+}
+
+.sidebarIcon {
+  width: 15px;
+  height: 15px;
+}
+
+.rest {
+  width: 13px;
+}
+
+.sidebarText {
+  color: #5C5E64;
+  font-size: 14px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.ctgText {
+  font-size: 10px;
+  font-weight: bold;
+  color: #5C5E64;
+}
+
+.ctgText.hidden {
+  margin-left: -5px;
+}
+
+.sidebarsearchboxWrapper.hidden {
+  width: 30px;
+  margin-left: 10px;
+  background: none;
+}
+
+.sidebarText.hidden {
+  display: none;
+}
+
+.sidebaraskButton.hidden{
+  display: none;
+}

@@ -1,0 +1,214 @@
+.restaurants{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-top: 30px;
+}
+
+.rest-list-container{
+  display: flex;
+  justify-content: center;
+}
+
+.rest-list-box{
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #e0e0e0;
+  padding: 3px;
+  padding-top: 30px;
+}
+
+.rest-list-card-box{
+  display: flex;
+  justify-content: center;
+}
+
+.rest-no-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 300px;
+  font-size: 15px;
+  color: #333;
+}
+
+.rest-card-li {
+  display: flex;
+  justify-content: center;
+  width: 32%;
+  list-style:none;
+  margin: 7px;
+}
+
+@media (max-width: 768px) {
+  .rest-card-li {
+    width: 100%; 
+  }
+}
+
+.rest-search-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.rest-search-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+  border: 1px solid #ccc;
+  border-radius: 45px;
+  height: 60px;
+}
+
+.rest-search-input {
+  width: 600px;
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  margin-right: 30px;
+  outline: none;
+}
+
+.rest-search-input :hover {
+  outline: none;
+  border: none;
+}
+
+.rest-search-btn {
+  width: 45px;
+  height: 45px;
+  margin-left: 10px;
+  margin-right: 20px;
+  padding: 10px;
+  background-color: #FF8A00;
+  border: none;
+  border-radius: 55px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rest-search-btn:hover {
+  background-color: #e77a00;
+}
+
+.rest-search-btn svg {
+  font-size: 23px;
+}
+
+.rest-search-location{
+  margin-right: 50px;
+}
+
+.rest-location-dropdown {
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #ccc;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  color: #333;
+}
+
+.rest-location-dropdown:focus {
+  outline: none;
+  border-color: #FF8A00;
+}
+
+.rest-location-dropdown option {
+  padding: 10px;
+  background-color: white;
+  color: #333;
+}
+
+.rest-location-dropdown option:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.rest-keyword-con{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.rest-keyword-container{
+  width: 80%;
+  height: 160px;
+  margin-bottom: 30px;
+  background-color: #FBFBFB;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  border-radius: 4px;
+}
+
+.rest-keyword-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.rest-keyword-title{
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 100%;
+  background-color: #F89C5B;
+}
+
+.rest-keyword-title-text{
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.rest-keyword-btn-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 100%;
+  margin: 20px 40px;
+}
+
+.rest-keyword-btn {
+  padding: 5px 9px;
+  border: none;
+  border-radius: 12px;
+  border: 1px solid #9C9C9C;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 11px;
+  text-align: center;
+}
+
+.rest-keyword-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.rest-keyword-btn.active {
+  background-color: #ff8a00;
+  border: none;
+  color: white;
+}

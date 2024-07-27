@@ -1,0 +1,9 @@
+.hinttextalign {
+  display: flex;
+  flex-direction: row;
+}
+
+.restacceptP > span {
+  font-weight: 500;
+  color: #807f7f;
+}

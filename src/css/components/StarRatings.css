@@ -1,0 +1,46 @@
+.star-ratings-container{
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.carouselhei {
+  margin: 0;
+}
+
+.star-ratings {
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  width: fit-content;
+}
+
+.star-ratings-base {
+  color: #ccc;
+  font-size: 24px;
+}
+
+.star-ratings-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #f8ce0b;
+  font-size: 24px;
+}
+
+.space-x-2 > span + span {
+  margin-left: 8px;
+}
+
+.text-sm{
+  padding-left: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: rgb(131, 131, 131);
+}
+
+.carouselFill {
+  color: #FF8A00;
+}

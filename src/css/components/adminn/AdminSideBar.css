@@ -1,0 +1,36 @@
+.adminSidebarWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adminsidebarcontent{
+  width: 120px;
+  border: 1px solid #dddddd;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 5px #dddddd;
+  padding: 10px 0;
+}
+
+.adminSidebatText {
+  border: none;
+  margin: 2px 0;
+}
+
+.line{
+  width: 80%;
+  border-top: 1px solid #dddddd;
+}
+
+.adminSidebatText.active {
+  color: #4E95D9;
+  font-weight: bold;
+}
+.adminSidebatText.empty {
+  cursor: default;
+  pointer-events: none;
+}

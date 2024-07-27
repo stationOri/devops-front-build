@@ -1,0 +1,59 @@
+name: 리액트 앱 컨테이너 기반 배포하기
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ContainerBased-Deploy-Job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Github Repository의 파일 가져오기
+        uses: actions/checkout@v4
+
+      - name: Node.js 설치
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: 의존성 설치
+        run: |
+          cd devops-final-front
+          npm install
+
+      - name: .env 파일 생성
+        run: |
+          cd devops-final-front
+          echo "${{ secrets.ENV }}" > .env
+
+      - name: 리액트 앱 빌드
+        run: |
+          ls
+          cd devops-final-front
+          CI=false npm run build
+
+      - name: Dockerfile 생성
+        run: |
+          echo 'FROM nginx:alpine' > Dockerfile
+          echo 'COPY build /usr/share/nginx/html' >> Dockerfile
+
+      - name: AWS ECR 접근하기 위해 AWS credentials 설정
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ap-northeast-2
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_PUBLIC }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY_PRIVATE }}
+
+      - name: AWS ECR에 로그인하기
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Docker 이미지 생성
+        run:  docker build -t frontend-app .
+
+      - name: Docker 이미지에 Tag 붙이기
+        run: docker tag frontend-app ${{ steps.login-ecr.outputs.registry }}/frontend-app:latest
+
+      - name: ECR에 Docker 이미지 push
+        run: docker push ${{ steps.login-ecr.outputs.registry }}/frontend-app:latest

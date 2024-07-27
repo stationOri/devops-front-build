@@ -1,0 +1,397 @@
+.reservation {
+  width: 80%;
+  margin: 0;
+  padding: 0;
+}
+
+.res-container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+}
+
+.rest-photo-map {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.res-rest-photo{
+  width: 55%;
+  height: 400px;
+  object-fit: cover;
+  max-width: 1500px;
+  display: block;
+}
+
+.rest-photo {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  max-width: 900px;
+  display: block;
+  margin-top: 20px;
+  border-radius: 7px;
+}
+
+.res-map{
+  width: 40%;
+  height: 400px;
+  object-fit: cover;
+  max-width: 1500px;
+  display: block;
+}
+
+.res-rest-content{
+  padding: 20px;
+}
+
+.rest-info-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.rest-name-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.rest-name {
+  font-size: 34px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.res-rest-intro-box{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.rest-info-wrap-2{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 10px;
+}
+
+.rest-info-img{
+  width: 25px;
+}
+
+.rest-info-content{
+  font-size: 18px;
+  font-weight: lighter;
+  margin-left: 20px;
+}
+
+.res-rest-location-wrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+
+}
+
+.res_rest_intro{
+  width: 50%;
+  font-size: 18px;
+  font-weight: lighter;
+  margin-top: 17px;
+}
+
+.mt-5{
+  margin-top: 5px;
+}
+
+.res-horizon{
+  display: flex;
+  width: 100%;
+  height: 0.5px;
+  background-color: #FF8A00;
+}
+
+.res-rest-keyword{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-right: 50px;
+}
+
+.res-enroll-date-time{
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 10px -25px;
+}
+
+.res-enroll-ppl, .res-enroll-date{
+  display: flex;
+  justify-content: center;
+  margin: 0px 30px;
+}
+
+.res-cal-img, .res-ppl-img{
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
+.res-sub-title{
+  font-size: 22px;
+  font-weight: 400;
+  margin-top: 30px;
+}
+
+.btn-center{
+  display: flex;
+  justify-content: center;
+}
+
+.res-enroll-btn{
+  width: 90px;
+  height: 40px;
+  color: #ffffff;
+  border: 1px solid #ff8a00;
+  border-radius: 7px;
+  margin: 0px 3px;
+  background: #ff8a00;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.res-btn-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 18px;
+}
+
+.res-btn-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px 20px;
+}
+
+.res-time-btn{
+  width: 80px;
+  height: 35px;
+  color: #ff8a00;
+  border: 1px solid #ff8a00;
+  border-radius: 7px;
+  margin: 0px 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.selected{
+  background: #ff8a00;
+  color: #ffffff;
+}
+
+.res-menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.res-menu-li {
+  width: 30%;
+  margin-bottom: 20px;
+  list-style:none;
+  padding-left:0px;
+}
+
+@media (max-width: 768px) {
+  .res-menu-li {
+    width: 100%; 
+  }
+}
+
+.res-menu-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 7px;
+}
+
+.res-menu-img{
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.res-menu-info-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+
+.res-menu-title{
+  font-size: 21px;
+  font-weight: bold;
+  color: #ff8a00;
+}
+
+.res-menu-price{
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+.menu-quantity-controls{
+  margin-top: 10px;
+}
+
+.menu-picker-btn-minus{
+  margin-right: 10px;
+}
+
+.menu-picker-btn-plus{
+  margin-left: 10px;
+}
+
+.res-total-container{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.res-total-item{
+  display: flex;
+}
+
+.res-menu-name{
+  font-size: 20px;
+  font-weight: lighter;
+  margin-right: 130px;
+}
+
+.res-menu-quan, .res-menu-money{
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.menu-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.even-item {
+  background-color: #f0f0f0; 
+}
+
+.odd-item {
+  background-color: #ffffff;
+}
+
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.menu-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-collapse: collapse;
+  width: 33%;
+  text-align: center;
+}
+
+.res-total-price {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.res-req{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.custom_textarea {
+  width: 90%;
+  height: 150px;
+  font-size: 15px;
+  resize: none;
+  color: black;
+  border: 0.3px solid #e3e3e367;
+  border-radius: 20px;
+  outline: none;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 30px;
+}
+
+.res-to-pay-container{
+  display: flex;
+  justify-content: center; 
+  margin-top: 40px;
+}
+
+.res-pay-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #F5F5F5;
+  width: 95%;
+  border-radius: 6px;
+  padding: 30px;
+}
+
+.sub-title-margin{
+  margin-top: 50px;
+}
+
+.refund-info{
+  margin-right: 50px;
+}
+
+.res-pay-info-total{
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.res-refund-rule{
+  font-size: 15px;
+  font-weight: lighter;
+  margin: 10px;
+}
+
+.res-deposit-method-info{
+  margin-top: -10px;
+  font-size: 13px;
+  font-weight: lighter;
+}
+
+.res-check{
+  margin-top: 10px;
+}
+
+.disabled{
+  pointer-events: none;
+  opacity: 0.5;
+}

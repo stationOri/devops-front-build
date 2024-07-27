@@ -1,0 +1,33 @@
+.message-input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #e1e1e1;
+  min-height: 60px;
+}
+
+.message-input input {
+  flex: 1;
+  padding: 10px;
+  height: 40px;
+  outline: none;
+}
+
+.message-input input :hover {
+  outline: none;
+}
+
+.message-input-box{
+  border: none;
+}
+
+.send-btn{
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  background-color: #FF8A00;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+}

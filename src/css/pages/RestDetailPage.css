@@ -1,0 +1,293 @@
+.detail {
+  margin: 0;
+  padding: 0;
+  width: 80%;
+}
+
+.rest-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rest-photo-box {
+  display: flex;
+  justify-content: center;
+}
+
+.rest-photo {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  max-width: 1500px;
+  display: block;
+}
+
+.rest-info-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.rest-name-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.rest-name {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.rest-btn-box {
+  display: flex;
+  align-items: center;
+}
+
+.empty-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 140px;
+  height: 32px;
+  border-radius: 7px;
+  margin: 0px 10px;
+  background: transparent;
+  cursor: pointer;
+}
+.empty-btn:hover {
+  text-decoration: underline;
+}
+
+.empty-img{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.ask-btn {
+  width: 110px;
+  height: 30px;
+  color: #ff8a00;
+  border: 1px solid #ff8a00;
+  border-radius: 7px;
+  margin: 0px 10px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.ask-btn:hover {
+  background: #ff8a00;
+  color: #000000;
+}
+
+.res-btn {
+  width: 80px;
+  height: 30px;
+  color: #000000;
+  border: 1px solid #ff8a00;
+  border-radius: 7px;
+  margin: 0px 3px;
+  background: #ff8a00;
+  cursor: pointer;
+}
+.res-btn:hover {
+  background: #ffffff;
+  color: #ff8a00;
+}
+
+.btn-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.rest-intro-box{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.rest-keyword{
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.rest-box{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.rest-title{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.rest-announce-box{
+  position: relative;
+  background-color: #ECF0F4;
+  padding: 30px 60px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.quotes-img-container {
+  position: absolute;
+  width: 60px;
+  height: 50px;
+}
+
+.quotes-img{
+  position: absolute;
+  width: 60px;
+  height: 50px;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+.quotes-img-1 {
+  top: -15px; 
+  left: -15px;
+}
+
+.quotes-img-2 {
+  bottom: -15px;
+  right: -15px;
+}
+
+.rest-location-box{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.rest-map{
+  width: 60%;
+}
+
+.rest-location-wrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  margin-left: 40px;
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.menu-li {
+  width: 48%;
+  margin-bottom: 20px;
+  list-style:none;
+  padding-left:0px;
+}
+
+@media (max-width: 768px) {
+  .menu-li {
+    width: 100%; 
+  }
+}
+
+.menu-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 7px;
+}
+
+.menu-img{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.menu-info-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+
+.menu-title{
+  font-size: 23px;
+  font-weight: bold;
+  color: #ff8a00;
+}
+
+.menu-price{
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.rest-info-wrap{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px;
+}
+
+.rest-info-wrap-2{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 10px;
+}
+
+.rest-info-img{
+  width: 25px;
+}
+
+.rest-info-content{
+  font-size: 18px;
+  font-weight: lighter;
+  margin-left: 20px;
+}
+
+.rest-reviews-with-pagination{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.rest-review-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 50px;
+  min-width: 1100px;
+  min-height: 525px;
+}
+
+.review-pagination-img{
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  display: block;
+}
+
+.rest-no-review{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 23px;
+  font-weight: lighter;
+}

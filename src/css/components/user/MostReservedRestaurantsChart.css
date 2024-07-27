@@ -1,0 +1,16 @@
+.my-most-graph-container {
+  width: 270px;
+  height: 270px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.my-most-graph-title{
+  font-size: 17px;
+  font-weight: lighter;
+}
+
+.my-most-graph-container canvas {
+  padding: 20px;
+  max-width: 100%;
+}

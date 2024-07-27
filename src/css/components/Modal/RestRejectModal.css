@@ -1,0 +1,38 @@
+.rejectModal{
+  width: 300px;
+  position: fixed; 
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: #f8f8f8;
+  border-radius: 15px;
+  box-shadow: 0 0 30px gray;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.rejectmodalcontentswrapper {
+  display: flex;
+  flex-direction: column;
+  width: 290px;
+  justify-content: center;
+}
+
+.rejectModalContent {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.rejectModalContent >button {
+  width: 32%;
+  height: 30px;
+}
+
+.rejectbtnactive {
+  /* border: 1px solid #4E95D9; */
+  font-weight: bold ;
+}

@@ -1,0 +1,160 @@
+.fullWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.restSigninWrapper {
+  margin: 50px;
+  width: clamp(60%, 90% - 20vw, 90%);
+  border-radius: 10px;
+  box-shadow: #dddddd 3px 3px 10px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding: 20px 20px;
+}
+/* @media(max-width: 1500px) {
+  .restSigninWrapper {
+    width: 60%;
+  }
+}
+@media(max-width: 1000px) {
+  .restSigninWrapper {
+    width: 80%;
+  }
+} */
+/* 헤더 */
+.signinHeader {
+  width: 100%;
+  margin: 15px 0px 10px;
+}
+.headertext {
+  font-size: 20px;
+  font-weight: bold;
+}
+.headerexplain {
+  color: #888888;
+  font-size: 15px;
+  margin-top: 5px;
+}
+.ori {
+  width: 30px;
+}
+
+/* 컨텐츠 */
+.signinContent {
+  margin: 10px 0px 10px;
+}
+.wrapper2{
+  width: 49%;
+}
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px 0;
+  margin: 5px 0;
+}
+.explainText {
+  color: #333333;
+  font-size: 14px;
+}
+.child2 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.input1, .input2, .input1short{
+  border: #dddddd solid 1px;
+  border-radius: 5px;
+  height: 25px;
+  margin: 0;
+}
+
+.input1 {
+  width: 70%;
+}
+
+.input2 {
+  width: 100%;
+}
+.input1short {
+  width: 65%;
+}
+.numberCheck, .phoneCheck, .emailCheckBtn {
+  width: 35%;
+}
+
+.input2btn2short {
+  width: 49%;
+}
+
+
+.buttoninputWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+@media(max-width: 900px) {
+  .input2btn2short {
+    width: 100%;
+  }
+  .child2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .input2btn2short {
+    padding: 5px 0;
+    margin-top: 5px;
+    width: 100%;
+  }
+  .wrapper2{
+    padding: 5px 0;
+    margin-top: 5px;
+    width: 100%;
+  }
+  .row {
+    margin: 0;
+  }
+}
+
+
+/* 파일 업로드 */
+.filebox {
+  width: 100%;
+}
+.filecompo {
+  width: 100%;
+}
+
+.filecompoWrapper {
+  width: 100%;
+}
+
+/* 푸터 */
+.signinFooter {
+  margin: 10px 0px 15px;
+}
+
+.signinSubmitBtn {
+  width: 100%;
+  background-color: #ff8a00;
+  color: white;
+  height: 30px;
+}
+
+button {
+  height: 28px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 10px;
+}

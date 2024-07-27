@@ -1,0 +1,77 @@
+.chat-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-modal-content {
+  background-color: white;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.chat-modal-body{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.chat-modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.chat-icon {
+  width: 70px;
+  height: 70px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.chat-header-text {
+  font-size: 20px;
+}
+
+.chat-btn-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-btn-content{
+  width: 160px;
+  height: 40px;
+  margin-top: 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.chat-send-btn{
+  color: white;
+  background-color: #FF8A00;
+  border: none;
+}
+
+.message-input-modal-box{
+  width: 350px;
+  height: 110px;
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 10px;
+  word-wrap: break-word;
+}

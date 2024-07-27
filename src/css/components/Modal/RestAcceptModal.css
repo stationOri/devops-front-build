@@ -1,0 +1,119 @@
+.acceptModal{
+  width: 500px;
+  position: fixed; 
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: #f8f8f8;
+  border-radius: 15px;
+  box-shadow: 0 0 30px gray;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.restacceptModalContent {
+  display: flex;
+  flex-direction: column;
+  width: 490px;
+  justify-content: center;
+}
+
+.input1box {
+  width: 100%;
+  height: 28px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+}
+
+.input2box{
+  width: 98%;
+  height: 28px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+}
+
+.input2boxwithbtn {
+  width: 67%;
+  height: 28px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+}
+
+.accepthintText {
+  color: #555555;
+  font-size: 13px;
+  width: 100%;
+}
+
+.forspacing{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.acceptshowbtn {
+  font-weight: bold;
+  height: 32px;
+  width: 30%;
+}
+
+.acceptModalHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.acceptclosebtn {
+  border: none;
+  background-color: #f8f8f8;
+}
+
+.acceptboldText {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.acceptModalButton {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.acceptModalAccept {
+  background-color: #4E95D9;
+  border: none;
+  color: white;
+  width: 49%;
+}
+
+.acceptModalReject {
+  width: 49%;
+}
+
+.firstacceptrow,
+.secondaccpetrow,
+.thirdaccpetrow,
+.fourthaccpetrow {
+  margin-bottom: 10px;
+}
+
+.thirdaccpetrow, .fourthaccpetrow {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.acceptModalHeader {
+  margin-bottom: 10px;
+}
+
+.acceptModalButton {
+  margin-top: 10px;
+}
+
+.foralign {
+  width: 49%;
+}

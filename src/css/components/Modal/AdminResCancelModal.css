@@ -1,0 +1,58 @@
+.adminCancelModalContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+}
+
+.adminCancelboldText {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.adminCancelhintText {
+  font-size: 13px;
+  margin: 10px 0 0;
+}
+
+.adminCancelCheckbox {
+  font-size: 13px;
+}
+
+.admincancelcheckfirst {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 0;
+}
+
+.adminCancelCheckMessage {
+  font-size: 10px;
+  width: 100%;
+  color: rgb(230, 67, 67);
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+}
+
+.adminCancelBtnWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.adminCancelModalyesBtn {
+  width: 49%;
+  background-color: #4E95D9;
+  border: none;
+  color: white;
+}
+
+.adminCancelModalnoBtn {
+  width: 49%;
+  border: 1px solid #4E95D9;
+  color: #4E95D9;
+}

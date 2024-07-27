@@ -1,0 +1,84 @@
+.restacceptrootWrapper {
+  width: 95%;
+  padding: 0 20px;
+  border: 1px solid #dddddd;
+  box-shadow: 5px 5px 10px #dddddd;
+  border-radius: 10px;
+}
+
+.restAcceptexWrapper {
+  padding: 20px 0 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.restacceptTitle {
+  margin: 0;
+  padding: 0;
+  color: #333333;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.restacceptP {
+  margin: 0;
+  padding: 0;
+  color: #888888;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.restafteracceptTableWrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 500px;
+}
+
+.restacceptColumn {
+  width: 48%;
+}
+
+.restafteracceptRowWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.restafteracceptbutton {
+  border: none;
+  background-color: #4E95D9;
+  color: white;
+  height: 25px;
+  width: 80px;
+}
+
+.headerforsearch {
+  background-color: #f8f8f8;
+  border-radius: 20px;
+  height: 40px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.searchimginrestsearch {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.restsearchinput {
+  border: none;
+  background-color: #f8f8f8;
+  border-left: 1px solid #dddddd;
+  color: #555555;
+  height: 22px;
+  padding: 0 10px 0;
+}
+
+.restsearchinput:focus {
+  outline: none;
+}

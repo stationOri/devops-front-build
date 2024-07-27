@@ -1,0 +1,26 @@
+.adminnav{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.adminNavWarpper{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  border: 1px solid #dddddd;
+  border-radius: 25px;
+  height: 40px;
+  box-shadow: 3px 3px 5px #dddddd ;
+}
+
+.adminnavmenu{
+  border: none;
+}
+
+.adminnavmenu.active {
+  color: #4E95D9;
+  font-weight: bold;
+}

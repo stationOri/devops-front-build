@@ -1,0 +1,33 @@
+.restcancelModal {
+  width: 250px;
+  position: fixed; 
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: white;
+  border-radius: 15px;
+  /* box-shadow: 0 0 30px rgba(88, 88, 88, 0.05); */
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.cancelmodalReasonWrapper {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancelmodalReasonBtn {
+  width: 49%;
+}
+
+.cancelmodalReasonBtn.selectedReason {
+  font-weight: bold;
+}
+
+.cancelmodaldetail {
+  margin-bottom: 0;
+}

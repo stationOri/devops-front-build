@@ -1,0 +1,138 @@
+#resbackgroundoff {
+  width: 100%;
+  height: 100%;
+  background-color: lightgray;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  display: none;
+}
+
+#resbackgroundon {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.101);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+}
+
+.revAcceptModal {
+  width: 400px;
+  position: fixed; 
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: white;
+  border-radius: 15px;
+  /* box-shadow: 0 0 30px rgba(88, 88, 88, 0.05); */
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+#checkhide {
+  display: none;
+}
+
+#checkshow {
+  display: flex;
+}
+
+.resacceprmodalmid {
+  margin-bottom: 20px;
+}
+
+.resmodalbold {
+  font-weight: 600;
+}
+
+.resmodalhint {
+  font-size: 12px;
+  font-weight: 400;
+  color: #888888;
+}
+
+.resmodalresnum {
+  font-size: 12px;
+  font-weight: 400;
+  color: #888888;
+  margin: 10px 0 15px;
+}
+
+.nameRow, .numRow, .menuRow, .requestRow {
+  display: flex;
+  margin: 10px 0;
+}
+
+.explainTextinAccept {
+  font-size: 14px;
+  color: #666666;
+  width: 30%;
+}
+
+.explaininputText {
+  border: 1px solid #dddddd;
+  width: 70%;
+  border-radius: 5px;
+  height: 30px;
+  padding: 0 5px;
+  color: #555555;
+}
+
+.grayline {
+  margin: 5px 0;
+}
+
+.menuWrapper {
+  width: 70%;
+}
+
+
+.acceptmodaltrWrapper {
+  width: 100%;
+  display: flex;
+  border: 1px solid #ffa640;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.menutd {
+  width: 50%;
+  padding: 1px 5px;
+  color: #333333;
+}
+
+.menunamtinaccept {
+  border-right: 1px solid #ff8a00;
+}
+
+.resacceprmodalfoot{
+  margin: 10px 0 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.resModalBtn {
+  background-color: #ff8a00;
+  border: none;
+  color: white;
+  width: 49%;
+  height: 28px;
+}
+
+.resModalBtnno {
+  width: 49%;
+  height: 28px;
+}
+
+.requestdetail {
+  height: 70px;
+  font-size: 14px;
+  padding: 2px 5px;
+}
+
