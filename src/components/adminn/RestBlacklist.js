@@ -19,7 +19,7 @@ function RestBlacklist() {
 
   const getRestData = async () => {
     try {
-      const response = await fetch("http://localhost:8080/black/rest");
+      const response = await fetch("https://waitmate.shop/api/black/rest");
       if (!response.ok) {
         throw new Error("Failed to fetch");
       }

@@ -29,7 +29,7 @@ function AdminUserList() {
 
   const getRestData = async () => {
     try {
-      const response = await fetch("http://localhost:8080/user");
+      const response = await fetch("https://waitmate.shop/api/user");
       if (!response.ok) {
         throw new Error("Failed to fetch");
       }

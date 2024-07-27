@@ -26,7 +26,7 @@ function InputModal() {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/rest/report", {
+      const response = await fetch("https://waitmate.shop/api/rest/report", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +55,7 @@ function InputModal() {
     console.log("Posting user report with data:", reportData); // 데이터 확인
 
     try {
-      const response = await fetch("http://localhost:8080/userreport", {
+      const response = await fetch("https://waitmate.shop/api/userreport", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

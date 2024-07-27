@@ -20,7 +20,7 @@ function MessageInput({ chattingRoomId, userId, onMessageSent, btnColor = "#FF8A
   useEffect(() => {
     const fetchChatRoomDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/chat/user/${userId}`);
+        const response = await fetch(`https://waitmate.shop/api/chat/user/${userId}`);
         if (!response.ok) {
           throw new Error("Failed to fetch chat room details");
         }

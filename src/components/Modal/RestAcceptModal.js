@@ -23,7 +23,7 @@ function RestAcceptModal({
 
   const handleAcceptRest = async () => {
     try {
-      const url = `http://localhost:8080/restaurants/status/${rest_id}`;
+      const url = `https://waitmate.shop/api/restaurants/status/${rest_id}`;
       const requestBody = { status: "B" };
 
       console.log("다음과 같이 레스토랑 상태를 업데이트합니다:", url, requestBody);

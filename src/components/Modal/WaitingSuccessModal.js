@@ -17,7 +17,7 @@ function WaitingSuccessModal({ isOpen, onClose, userId, userPhone }) {
   const fetchWaiting = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/waiting/user/${userId}`
+        `https://waitmate.shop/api/waiting/user/${userId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch waiting");

@@ -27,7 +27,7 @@ const WaitingEnrollModal = ({ isOpen, onClose, userId, restId, name }) => {
   const fetchRestInfo = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/restaurants/info/res/${restId}`
+        `https://waitmate.shop/api/restaurants/info/res/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch restaurant info");
@@ -42,7 +42,7 @@ const WaitingEnrollModal = ({ isOpen, onClose, userId, restId, name }) => {
 
   const fetchWaiting = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/waiting/rest/${restId}`);
+      const response = await fetch(`https://waitmate.shop/api/waiting/rest/${restId}`);
       if (!response.ok) {
         throw new Error("Failed to fetch waiting");
       }
@@ -79,7 +79,7 @@ const WaitingEnrollModal = ({ isOpen, onClose, userId, restId, name }) => {
     const userPhoneString = String(userPhone);
     setLoading(true);
     try {
-      const response = await axios.post(`http://localhost:8080/waiting`, {
+      const response = await axios.post(`https://waitmate.shop/api/waiting`, {
         userId: userId,
         restId: restId,
         waitingPpl: selectedGuests,

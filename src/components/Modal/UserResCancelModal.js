@@ -10,7 +10,7 @@ function UserResCancelModal({ usercancelshow, reservation, UserCancelClose }) {
   const handleResCancel = async () => {
     console.log(reservation);
     try{
-      const response = await  axios.put(`http://localhost:8080/reservations/status/${reservation.resId}`, {
+      const response = await  axios.put(`https://waitmate.shop/api/reservations/status/${reservation.resId}`, {
         status: "RESERVATION_CANCELED_BYUSER",
         reason: ""
       }, {

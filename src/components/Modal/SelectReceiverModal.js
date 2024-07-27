@@ -16,7 +16,7 @@ function SelectReceiverModal({ isOpen, onClose, receiverId, senderId }) {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/chat/chat", {
+      const response = await fetch("https://waitmate.shop/api/chat/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

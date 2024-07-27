@@ -52,7 +52,7 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, name }) => {
 
   const fetchOpentimes = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/opentime/${id}`);
+      const response = await fetch(`https://waitmate.shop/api/opentime/${id}`);
       if (!response.ok) {
         throw new Error("Failed to fetch opentimes");
       }
@@ -73,7 +73,7 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, name }) => {
     try {
       const formattedDate = toKoreanDateString(new Date(date)); // 날짜를 KST로 변환
       const response = await fetch(
-        `http://localhost:8080/reservations/${id}/times/${formattedDate}`
+        `https://waitmate.shop/api/reservations/${id}/times/${formattedDate}`
       );
       if (!response.ok) {
         throw new Error("사용 가능한 시간 가져오기 실패");
@@ -106,7 +106,7 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, name }) => {
   const fetchRestInfo = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/restaurants/info/res/${id}`
+        `https://waitmate.shop/api/restaurants/info/res/${id}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch restaurant info");
@@ -160,7 +160,7 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, name }) => {
 
   const handleOpenModal = async () => {
     try {
-      await axios.post(`http://localhost:8080/vacant`, {
+      await axios.post(`https://waitmate.shop/api/vacant`, {
         userId: userId,
         restId: id,
         date: toKoreanDateString(selectedDate),

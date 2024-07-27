@@ -15,7 +15,7 @@ function NicknameEditModal({ EditClose, editshow, userId, onSuccess }) {
     };
 
     try {
-      const response = await fetch(`http://localhost:8080/user/${userId}`, {
+      const response = await fetch(`https://waitmate.shop/api/user/${userId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -12,7 +12,7 @@ function RestStatusModal({ RestChangeClose, restchangeshow, reservation }) {
     if (selectedReason) {
       try{
         
-        const response = await  axios.put(`http://localhost:8080/reservations/status/${reservation.resId}`, {
+        const response = await  axios.put(`https://waitmate.shop/api/reservations/status/${reservation.resId}`, {
           status:  selectedReason === '노쇼'? 'NOSHOW' : 'VISITED',
           reason: ""
         }, {

@@ -16,7 +16,7 @@ function SendTalkModal({ TalkClose, talkshow, restId }) {
     const fetchTimeline = async () => {
       const formattedDate = selectedDate.toISOString().split('T')[0]; // YYYY-MM-DD 형식으로 변환
       try {
-        const response = await axios.get(`http://localhost:8080/reservations/rest/${restId}/time/${formattedDate}`);
+        const response = await axios.get(`https://waitmate.shop/api/reservations/rest/${restId}/time/${formattedDate}`);
         const unique = [...new Set(response.data.map(item => item.split(' ')[1].substring(0, 5)))];
         const sortedUnique = unique.sort((a, b) => {
           const [aHours, aMinutes] = a.split(':').map(Number);

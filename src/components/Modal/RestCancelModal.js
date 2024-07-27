@@ -11,7 +11,7 @@ function RestCancelModal({ RestCancelClose, restcancelshow, reservation }) {
    
     if (selectedReason) {
       try{
-        const response = await  axios.put(`http://localhost:8080/reservations/status/${reservation.resId}`, {
+        const response = await  axios.put(`https://waitmate.shop/api/reservations/status/${reservation.resId}`, {
           status: "RESERVATION_REJECTED",
           reason: selectedReason
         }, {

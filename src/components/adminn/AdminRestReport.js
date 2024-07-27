@@ -24,7 +24,7 @@ function AdminRestReport() {
 
   const getRestData = async () => {
     try {
-      const response = await fetch("http://localhost:8080/rest/report");
+      const response = await fetch("https://waitmate.shop/api/rest/report");
       if (!response.ok) {
         throw new Error("Failed to fetch");
       }
