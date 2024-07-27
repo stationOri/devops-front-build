@@ -13,6 +13,7 @@
 .rest-list-box{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   border: 1px solid #e0e0e0;
   padding: 3px;
   padding-top: 30px;
@@ -36,7 +37,7 @@
 .rest-card-li {
   display: flex;
   justify-content: center;
-  width: 32%;
+  width: 31%;
   list-style:none;
   margin: 7px;
 }
