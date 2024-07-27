@@ -21,7 +21,7 @@ function AccountInfo({ restId }) {
   // Fetch restaurant settings
   const fetchSettings = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/restaurants/info/setting/${restId}`);
+      const response = await axios.get(`http://https://waitmate.shop/api:8080/restaurants/info/setting/${restId}`);
       const data = response.data;
 
       setRestName(data.restName);
@@ -77,7 +77,7 @@ function AccountInfo({ restId }) {
       formData.append('restIntro', inputDescription);
       formData.append('restPhone', inputPhoneNumber);
 
-      await axios.put(`http://localhost:8080/restaurants/info/setting/${restId}`, formData, {
+      await axios.put(`http://https://waitmate.shop/api:8080/restaurants/info/setting/${restId}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

@@ -21,7 +21,7 @@ function WaitingManagement({ restId, onMenuClick }) {
   const getWait = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/restaurants/info/revWait/${restId}`
+        `http://https://waitmate.shop/api:8080/restaurants/info/revWait/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch");
@@ -40,7 +40,7 @@ function WaitingManagement({ restId, onMenuClick }) {
   const getWaitStatus = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/restaurants/info/waitingstatus/${restId}`
+        `http://https://waitmate.shop/api:8080/restaurants/info/waitingstatus/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch");
@@ -65,7 +65,7 @@ function WaitingManagement({ restId, onMenuClick }) {
   const getWaitList = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/waiting/rest/${restId}`
+        `http://https://waitmate.shop/api:8080/waiting/rest/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch");
@@ -96,7 +96,7 @@ function WaitingManagement({ restId, onMenuClick }) {
   const updateWaitStatus = async (status) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/restaurants/info/rest/${restId}/waitstatus/${status}`,
+        `http://https://waitmate.shop/api:8080/restaurants/info/rest/${restId}/waitstatus/${status}`,
         {
           method: "PUT",
           headers: {

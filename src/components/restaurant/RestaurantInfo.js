@@ -75,7 +75,7 @@ function RestaurantInfo({ onMenuEditClick, onInfoEditClick, restId }) {
 const handelIsopen = async () => {
   try {
     const temp = !isopenContent; 
-    const response = await axios.put(`http://localhost:8080/restaurants/info/isopen/${restId}/${temp}`, {
+    const response = await axios.put(`http://https://waitmate.shop/api:8080/restaurants/info/isopen/${restId}/${temp}`, {
 
     });
 
@@ -117,7 +117,7 @@ const handelIsopen = async () => {
 
   const fetchIsopen = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/restaurants/info/isopen/${restId}`);
+      const response = await fetch(`http://https://waitmate.shop/api:8080/restaurants/info/isopen/${restId}`);
       if (!response.ok) {
         throw new Error("Failed to fetch isopen status");
       }
@@ -130,7 +130,7 @@ const handelIsopen = async () => {
 
   const fetchRestaurant = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/restaurants/${restId}`);
+      const response = await fetch(`http://https://waitmate.shop/api:8080/restaurants/${restId}`);
       if (!response.ok) {
         throw new Error("Failed to fetch restaurant");
       }
@@ -144,7 +144,7 @@ const handelIsopen = async () => {
 
   const fetchOpentimes = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/opentime/${restId}`);
+      const response = await fetch(`http://https://waitmate.shop/api:8080/opentime/${restId}`);
       if (!response.ok) {
         throw new Error("Failed to fetch opentimes");
       }
@@ -165,7 +165,7 @@ const handelIsopen = async () => {
   const fetchMenus = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/restaurants/menu/${restId}`
+        `http://https://waitmate.shop/api:8080/restaurants/menu/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch menus");
@@ -179,7 +179,7 @@ const handelIsopen = async () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/review/rest/${restId}`);
+      const response = await fetch(`http://https://waitmate.shop/api:8080/review/rest/${restId}`);
       if (!response.ok) {
         throw new Error("Failed to fetch reviews");
       }

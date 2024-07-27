@@ -26,7 +26,7 @@ function RevWaitSetting({ restId }) {
   // Function to fetch settings
   const fetchSettings = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/restaurants/info/setting/revwait/${restId}`);
+      const response = await axios.get(`http://https://waitmate.shop/api:8080/restaurants/info/setting/revwait/${restId}`);
       const setting = response.data;
       console.log(setting);
 
@@ -100,7 +100,7 @@ function RevWaitSetting({ restId }) {
         restReserveInterval: revperiod ? revperiod.value : null,
       };
 
-      await axios.put(`http://localhost:8080/restaurants/info/setting/revwait/${restId}`, data);
+      await axios.put(`http://https://waitmate.shop/api:8080/restaurants/info/setting/revwait/${restId}`, data);
       alert("설정이 저장되었습니다.");
       await fetchSettings();
     } catch (error) {

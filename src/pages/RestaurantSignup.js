@@ -66,7 +66,7 @@ function RestaurantSignin() {
     formData.append('file', fileUrl);
 
     try {
-        const response = await axios.post('http://localhost:8080/register/restaurant', formData, {
+        const response = await axios.post('http://https://waitmate.shop/api:8080/register/restaurant', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }

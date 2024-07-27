@@ -70,7 +70,7 @@ const Mypage = ({ userId, onCardClick }) => {
 
   const fetchUser = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/user/${userId}`);
+      const response = await fetch(`http://https://waitmate.shop/api:8080/user/${userId}`);
       if (!response.ok) {
         throw new Error("Failed to fetch user");
       }
@@ -86,7 +86,7 @@ const Mypage = ({ userId, onCardClick }) => {
   const fetchReservations = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/reservations/user/${userId}`
+        `http://https://waitmate.shop/api:8080/reservations/user/${userId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch reservations");
@@ -103,7 +103,7 @@ const Mypage = ({ userId, onCardClick }) => {
   const fetchResCount = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/reservations/user/${userId}/counts`
+        `http://https://waitmate.shop/api:8080/reservations/user/${userId}/counts`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch reservations");
@@ -120,7 +120,7 @@ const Mypage = ({ userId, onCardClick }) => {
   const fetchWaiting = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/waiting/user/${userId}`
+        `http://https://waitmate.shop/api:8080/waiting/user/${userId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch waiting");
@@ -138,7 +138,7 @@ const Mypage = ({ userId, onCardClick }) => {
   const fetchMost = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/restaurants/most/${userId}`
+        `http://https://waitmate.shop/api:8080/restaurants/most/${userId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch visited restaurants");
@@ -153,7 +153,7 @@ const Mypage = ({ userId, onCardClick }) => {
   const fetchFavorites = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/favorite/${userId}/rest`
+        `http://https://waitmate.shop/api:8080/favorite/${userId}/rest`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch favorites");
@@ -168,7 +168,7 @@ const Mypage = ({ userId, onCardClick }) => {
   const fetchReviews = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/review/user/${userId}`
+        `http://https://waitmate.shop/api:8080/review/user/${userId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch user review");
@@ -247,7 +247,7 @@ const Mypage = ({ userId, onCardClick }) => {
   const handleCancel = async () => {
     try {
       await axios.put(
-        `http://localhost:8080/waiting/${waiting.waitingId}`,
+        `http://https://waitmate.shop/api:8080/waiting/${waiting.waitingId}`,
         "QUEUE_CANCELED",
         {
           headers: {
@@ -271,7 +271,7 @@ const Mypage = ({ userId, onCardClick }) => {
 
       if (existingFavorite) {
         const response = await fetch(
-          `http://localhost:8080/favorite/${userId}/rest/${restId}`,
+          `http://https://waitmate.shop/api:8080/favorite/${userId}/rest/${restId}`,
           {
             method: "DELETE",
             headers: {
@@ -288,7 +288,7 @@ const Mypage = ({ userId, onCardClick }) => {
         }
       } else {
         const response = await fetch(
-          `http://localhost:8080/favorite/${userId}/rest/${restId}`,
+          `http://https://waitmate.shop/api:8080/favorite/${userId}/rest/${restId}`,
           {
             method: "POST",
             headers: {
