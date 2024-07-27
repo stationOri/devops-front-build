@@ -12,7 +12,7 @@ function Keywords({ restId }) {
   useEffect(() => {
     const fetchKeywords = async () => {
       try {
-        const response = await axios.get("http://https://waitmate.shop/api:8080/keywords");
+        const response = await axios.get("https://waitmate.shop/api/keywords");
         const keywords = response.data;
         const formattedKeywords = keywords.map((keyword) => ({
           value: keyword.keywordId,
@@ -30,7 +30,7 @@ function Keywords({ restId }) {
   useEffect(() => {
     const fetchCurrentKeywords = async () => {
       try {
-        const response = await axios.get(`http://https://waitmate.shop/api:8080/keywords/${restId}`);
+        const response = await axios.get(`https://waitmate.shop/api/keywords/${restId}`);
         const keywords = response.data;
         setCurrentKeywords(keywords);
       } catch (error) {
@@ -60,9 +60,9 @@ function Keywords({ restId }) {
     }
 
     try {
-      await axios.post(`http://https://waitmate.shop/api:8080/keywords/${selectedKeyword.value}/rest/${restId}`);
+      await axios.post(`https://waitmate.shop/api/keywords/${selectedKeyword.value}/rest/${restId}`);
       // 키워드 등록 후 현재 키워드를 다시 가져와서 업데이트
-      const response = await axios.get(`http://https://waitmate.shop/api:8080/keywords/${restId}`);
+      const response = await axios.get(`https://waitmate.shop/api/keywords/${restId}`);
       const keywords = response.data;
       setCurrentKeywords(keywords);
       setSelectedKeyword(null)
@@ -73,9 +73,9 @@ function Keywords({ restId }) {
 
   const handleDelete = async (keywordId) => {
     try {
-      await axios.delete(`http://https://waitmate.shop/api:8080/keywords/${keywordId}/rest/${restId}`);
+      await axios.delete(`https://waitmate.shop/api/keywords/${keywordId}/rest/${restId}`);
       // 키워드 삭제 후 현재 키워드를 다시 가져와서 업데이트
-      const response = await axios.get(`http://https://waitmate.shop/api:8080/keywords/${restId}`);
+      const response = await axios.get(`https://waitmate.shop/api/keywords/${restId}`);
       const keywords = response.data;
       setCurrentKeywords(keywords);
     } catch (error) {

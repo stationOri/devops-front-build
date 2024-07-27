@@ -31,7 +31,7 @@ const Main = ({ userId }) => {
   const getBannerFood = async () => {
     try {
       const response = await fetch(
-        `http://https://waitmate.shop/api:8080/restaurants/recommend`
+        `https://waitmate.shop/api/restaurants/recommend`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch");
@@ -45,7 +45,7 @@ const Main = ({ userId }) => {
 
   const getTrendingFood = async () => {
     try {
-      const response = await fetch(`http://https://waitmate.shop/api:8080/restaurants/hot`);
+      const response = await fetch(`https://waitmate.shop/api/restaurants/hot`);
       if (!response.ok) {
         throw new Error("Failed to fetch");
       }
@@ -59,7 +59,7 @@ const Main = ({ userId }) => {
   const getRestaurantsData = async () => {
     if (userLat && userLng) {
       try {
-        const response = await fetch(`http://https://waitmate.shop/api:8080/restaurants/near/lat/${userLat}/lng/${userLng}`);
+        const response = await fetch(`https://waitmate.shop/api/restaurants/near/lat/${userLat}/lng/${userLng}`);
         if (!response.ok) {
           throw new Error("Failed to fetch");
         }

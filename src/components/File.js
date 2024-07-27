@@ -32,7 +32,7 @@ const File = forwardRef(({ onFileChange, onUploadSuccess, onUploadError }, ref) 
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://https://waitmate.shop/api:8080/upload', formData, {
+      const response = await axios.post('https://waitmate.shop/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

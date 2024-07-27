@@ -41,7 +41,7 @@ function RestRun({ restId }) {
 
   const GetOpenTime = async (restId) => {
     try {
-      const response = await axios.get(`http://https://waitmate.shop/api:8080/opentime/${restId}`);
+      const response = await axios.get(`https://waitmate.shop/api/opentime/${restId}`);
       return response.data;
     } catch (error) {
       console.error('Error fetching open time:', error);
@@ -100,7 +100,7 @@ function RestRun({ restId }) {
           restBreakend: breakTime ? breakEndTime : ""
         };
 
-        await axios.put(`http://https://waitmate.shop/api:8080/opentime/rest/${restId}/day/${day}`, data);
+        await axios.put(`https://waitmate.shop/api/opentime/rest/${restId}/day/${day}`, data);
         console.log(`Updated ${day}`);
       }
       // After updating, fetch the latest open times
@@ -122,7 +122,7 @@ function RestRun({ restId }) {
         restBreakend: ""
       };
 
-      await axios.put(`http://https://waitmate.shop/api:8080/opentime/rest/${restId}/day/${day}`, data);
+      await axios.put(`https://waitmate.shop/api/opentime/rest/${restId}/day/${day}`, data);
       console.log(`Cleared data for ${day}`);
       // 업데이트 후 openTimeResult를 재설정
       const updatedResult = await GetOpenTime(restId);

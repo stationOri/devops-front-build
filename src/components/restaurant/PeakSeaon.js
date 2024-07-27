@@ -14,7 +14,7 @@ function PeakSeason({ restId }) {
   useEffect(() => {
     const fetchPeakSeasons = async () => {
       try {
-        const response = await axios.get(`http://https://waitmate.shop/api:8080/restaurants/peak/${restId}`);
+        const response = await axios.get(`https://waitmate.shop/api/restaurants/peak/${restId}`);
         const data = Array.isArray(response.data) ? response.data : [];
         setPeakSeasons(data);
       } catch (error) {
@@ -73,14 +73,14 @@ function PeakSeason({ restId }) {
     }
 
     try {
-      await axios.post("http://https://waitmate.shop/api:8080/restaurants/peak", {
+      await axios.post("https://waitmate.shop/api/restaurants/peak", {
         restId,
         dateStart: selectedDateStart,
         dateEnd: selectedDateEnd,
         peakOpendate: reservationDateTime,
       });
       
-      const response = await axios.get(`http://https://waitmate.shop/api:8080/restaurants/peak/${restId}`);
+      const response = await axios.get(`https://waitmate.shop/api/restaurants/peak/${restId}`);
       const data = Array.isArray(response.data) ? response.data : [];
       setPeakSeasons(data);
     } catch (error) {
@@ -90,8 +90,8 @@ function PeakSeason({ restId }) {
 
   const handleDelete = async (peakId) => {
     try {
-      await axios.delete(`http://https://waitmate.shop/api:8080/restaurants/peak/${peakId}`);
-      const response = await axios.get(`http://https://waitmate.shop/api:8080/restaurants/peak/${restId}`);
+      await axios.delete(`https://waitmate.shop/api/restaurants/peak/${peakId}`);
+      const response = await axios.get(`https://waitmate.shop/api/restaurants/peak/${restId}`);
       const data = Array.isArray(response.data) ? response.data : [];
       setPeakSeasons(data);
     } catch (error) {

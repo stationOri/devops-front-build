@@ -22,7 +22,7 @@ function MenuManagement({ restId }) {
   const fetchMenus = async () => {
     try {
       const response = await fetch(
-        `http://https://waitmate.shop/api:8080/restaurants/menu/${restId}`
+        `https://waitmate.shop/api/restaurants/menu/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch menus");
@@ -39,7 +39,7 @@ function MenuManagement({ restId }) {
   const handleMenuDelete = async (menuId) => {
     if (window.confirm("정말로 이 메뉴를 삭제하시겠습니까?")) {
       try {
-        const response = await fetch(`http://https://waitmate.shop/api:8080/restaurants/menu/${menuId}`, {
+        const response = await fetch(`https://waitmate.shop/api/restaurants/menu/${menuId}`, {
           method: 'DELETE',
         });
         if (!response.ok) {

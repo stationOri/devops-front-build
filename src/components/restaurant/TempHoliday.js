@@ -11,7 +11,7 @@ function TempHoliday({ restId }) {
   useEffect(() => {
     const fetchTempHolidays = async () => {
       try {
-        const response = await axios.get(`http://https://waitmate.shop/api:8080/restaurants/rest-temp-holiday/${restId}`);
+        const response = await axios.get(`https://waitmate.shop/api/restaurants/rest-temp-holiday/${restId}`);
         const data = Array.isArray(response.data) ? response.data : [];
         setTempHolidays(data);
       } catch (error) {
@@ -60,14 +60,14 @@ function TempHoliday({ restId }) {
   
     try {
       // 임시 휴무 등록
-      await axios.post("http://https://waitmate.shop/api:8080/restaurants/rest-temp-holiday", {
+      await axios.post("https://waitmate.shop/api/restaurants/rest-temp-holiday", {
         restId,
         startDate,
         endDate,
       });
       
       // 등록 후 데이터 목록을 다시 불러옵니다.
-      const response = await axios.get(`http://https://waitmate.shop/api:8080/restaurants/rest-temp-holiday/${restId}`);
+      const response = await axios.get(`https://waitmate.shop/api/restaurants/rest-temp-holiday/${restId}`);
       const data = Array.isArray(response.data) ? response.data : [];
       setTempHolidays(data);
     } catch (error) {
@@ -79,8 +79,8 @@ function TempHoliday({ restId }) {
   const handleDelete = async (holidayId) => {
     console.log("Deleting holiday with ID:", holidayId); // Debugging line
     try {
-      await axios.delete(`http://https://waitmate.shop/api:8080/restaurants/rest-temp-holiday/${holidayId}`);
-      const response = await axios.get(`http://https://waitmate.shop/api:8080/restaurants/rest-temp-holiday/${restId}`);
+      await axios.delete(`https://waitmate.shop/api/restaurants/rest-temp-holiday/${holidayId}`);
+      const response = await axios.get(`https://waitmate.shop/api/restaurants/rest-temp-holiday/${restId}`);
       const data = Array.isArray(response.data) ? response.data : [];
       setTempHolidays(data);
     } catch (error) {

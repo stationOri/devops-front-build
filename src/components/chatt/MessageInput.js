@@ -61,7 +61,7 @@ function MessageInput({ chattingRoomId, userId, onMessageSent, btnColor = "#FF8A
     };
 
     try {
-      const response = await fetch("http://https://waitmate.shop/api:8080/chat/chat", {
+      const response = await fetch("https://waitmate.shop/api/chat/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

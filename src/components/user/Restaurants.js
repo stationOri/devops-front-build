@@ -71,7 +71,7 @@ const Restaurants = ({ userId, onCardClick }) => {
       if (page <= (maxPages || Infinity)) {
         // 최대 페이지 수를 확인
         const response = await fetch(
-          `http://https://waitmate.shop/api:8080/restaurants/page/${page}`
+          `https://waitmate.shop/api/restaurants/page/${page}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch restaurants");
@@ -106,7 +106,7 @@ const Restaurants = ({ userId, onCardClick }) => {
   const fetchRestaurantByName = async (name) => {
     try {
       const response = await fetch(
-        `http://https://waitmate.shop/api:8080/restaurants/name/${name}`
+        `https://waitmate.shop/api/restaurants/name/${name}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch restaurants by name");
@@ -124,7 +124,7 @@ const Restaurants = ({ userId, onCardClick }) => {
 
   const fetchFavorites = async () => {
     try {
-      const response = await fetch(`http://https://waitmate.shop/api:8080/favorite/${userId}`);
+      const response = await fetch(`https://waitmate.shop/api/favorite/${userId}`);
       if (!response.ok) {
         throw new Error("Failed to fetch favorites");
       }
@@ -137,7 +137,7 @@ const Restaurants = ({ userId, onCardClick }) => {
 
   const fetchKeywords = async () => {
     try {
-      const response = await fetch(`http://https://waitmate.shop/api:8080/keywords`);
+      const response = await fetch(`https://waitmate.shop/api/keywords`);
       if (!response.ok) {
         throw new Error("Failed to fetch keywords");
       }
@@ -232,7 +232,7 @@ const Restaurants = ({ userId, onCardClick }) => {
 
       if (existingFavorite) {
         const response = await fetch(
-          `http://https://waitmate.shop/api:8080/favorite/${existingFavorite.favoriteId}`,
+          `https://waitmate.shop/api/favorite/${existingFavorite.favoriteId}`,
           {
             method: "DELETE",
             headers: {
@@ -249,7 +249,7 @@ const Restaurants = ({ userId, onCardClick }) => {
         }
       } else {
         const response = await fetch(
-          `http://https://waitmate.shop/api:8080/favorite/${userId}/rest/${restId}`,
+          `https://waitmate.shop/api/favorite/${userId}/rest/${restId}`,
           {
             method: "POST",
             headers: {

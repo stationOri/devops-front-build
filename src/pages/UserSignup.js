@@ -37,7 +37,7 @@ function UserSignup() {
       }
       
     }
-    axios.post('http://https://waitmate.shop/api:8080/mail/send', null, mail)
+    axios.post('https://waitmate.shop/api/mail/send', null, mail)
     .then(response => {
       console.log('mail success:', response.data);
       navigate('/');
@@ -56,7 +56,7 @@ function UserSignup() {
   //     }
       
   //   }
-  //   axios.post('http://https://waitmate.shop/api:8080/mail/verify', null, code)
+  //   axios.post('https://waitmate.shop/api/mail/verify', null, code)
   //   .then(response => {
   //     console.log('verify success:', response.data);
   //     setVerificationok(true);
@@ -88,7 +88,7 @@ function UserSignup() {
       userPhone,
     };
     
-      axios.post('http://https://waitmate.shop/api:8080/register/user', signupData)
+      axios.post('https://waitmate.shop/api/register/user', signupData)
       .then(response => {
         if(response.data>0){
           console.log('Signup success:', response.data);

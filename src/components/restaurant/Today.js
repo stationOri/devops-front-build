@@ -19,7 +19,7 @@ function Today({rev, restId}) {
 
   const getToday = async (restId,selectedDate) => {
     try {
-      const response = await fetch(`http://https://waitmate.shop/api:8080/reservations/rest/${restId}/time/${formatDateFetch(selectedDate)}`);
+      const response = await fetch(`https://waitmate.shop/api/reservations/rest/${restId}/time/${formatDateFetch(selectedDate)}`);
       if (!response.ok) {
         throw new Error("Failed to fetch");
       }
