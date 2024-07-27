@@ -19,24 +19,15 @@ jobs:
 
       - name: 의존성 설치
         run: |
-          cd devops-final-front
           npm install
 
       - name: .env 파일 생성
         run: |
-          cd devops-final-front
           echo "${{ secrets.ENV }}" > .env
 
       - name: 리액트 앱 빌드
         run: |
-          ls
-          cd devops-final-front
           CI=false npm run build
-
-      - name: Dockerfile 생성
-        run: |
-          echo 'FROM nginx:alpine' > Dockerfile
-          echo 'COPY build /usr/share/nginx/html' >> Dockerfile
 
       - name: AWS ECR 접근하기 위해 AWS credentials 설정
         uses: aws-actions/configure-aws-credentials@v4
