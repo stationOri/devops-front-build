@@ -18,7 +18,7 @@ function UserBlacklist() {
 
   const getRestData = async () => {
     try {
-      const response = await fetch("http://localhost:8080/black/user");
+      const response = await fetch("https://waitmate.shop/black/user");
       if (!response.ok) {
         throw new Error("Failed to fetch");
       }

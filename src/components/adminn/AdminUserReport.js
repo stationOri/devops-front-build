@@ -232,6 +232,7 @@ function AdminUserReport() {
       <ReportAcceptModal 
         reportacceptshow={reportacceptshow}
         ReportAcceptClose={ReportAcceptClose}
+        userreport={selectedReservation}
       />
     </div>
   );

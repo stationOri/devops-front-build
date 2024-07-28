@@ -80,7 +80,7 @@ function AdminRestReport() {
     
 
     filtered = filtered.filter((item) =>
-      item.id.toString().includes(searchTerm)
+      item.restId.toString().includes(searchTerm)
     );
 
     setFilteredItems(filtered);
@@ -95,8 +95,8 @@ function AdminRestReport() {
       for (let i = 0; i < itemsToAdd; i++) {
         filledArray.push({
           restReportId: filledArray.length + 1,
-          restName: "김밥 천국",
-          reportDate: "2024-06-01",
+          restName: "",
+          reportDate: "",
           reportContent: "",
           reporterId: "",
           adminId: "",
@@ -198,7 +198,7 @@ function AdminRestReport() {
                     <tr key={index}>
                       {rest.status !== "빈열" ? (
                         <td>
-                          {rest.restName}({rest.reportDate})
+                          {rest.restName}{rest.reportDate}
                         </td>
                       ) : (
                         <td></td>
@@ -245,6 +245,7 @@ function AdminRestReport() {
       <ReportAcceptModal
         reportacceptshow={reportacceptshow}
         ReportAcceptClose={ReportAcceptClose}
+        restreport={selectedReservation}
       />
     </div>
   );

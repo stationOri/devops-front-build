@@ -14,9 +14,11 @@ function SendTalkModal({ TalkClose, talkshow, restId }) {
 
   useEffect(() => {
     const fetchTimeline = async () => {
-      const formattedDate = selectedDate.toISOString().split('T')[0]; // YYYY-MM-DD 형식으로 변환
+      //const formattedDate = selectedDate.toLocaleDateString().split('T')[0]; // YYYY-MM-DD 형식으로 변환
+      const formattedDate = selectedDate.toLocaleDateString('en-CA');
       try {
         const response = await axios.get(`https://waitmate.shop/api/reservations/rest/${restId}/time/${formattedDate}`);
+        console.log(response.data);
         const unique = [...new Set(response.data.map(item => item.split(' ')[1].substring(0, 5)))];
         const sortedUnique = unique.sort((a, b) => {
           const [aHours, aMinutes] = a.split(':').map(Number);
@@ -32,10 +34,26 @@ function SendTalkModal({ TalkClose, talkshow, restId }) {
     fetchTimeline();
   }, [selectedDate, restId]);
 
-  const handleSendTalk = () => {
-    // 알림톡 전송 로직
-    console.log(`Selected Date: ${selectedDate.toISOString().split('T')[0]}`);
-    console.log(`Selected Time: ${selectedTime}`);
+  const handleSendTalk = async() => {
+    const formattedDate = selectedDate.toLocaleDateString('en-CA');
+    try {
+      const response = await axios.post(`https://waitmate.shop/api/reservations/notice`,{
+        restId,
+        selectedDate: formattedDate,
+        selectedTime,
+        notice: message
+      });
+      console.log(response);
+      console.log(response.data);
+      if(response.data==="success"){
+        alert('알림톡 전송 완료')
+      }else{
+        alert('알림톡 전송 실패');
+      }
+     
+    } catch (error) {
+      console.error("Error fetching reservation times:", error);
+    }
     setMessage("");
     TalkClose();
   };

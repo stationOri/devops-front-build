@@ -1,15 +1,52 @@
 import React from "react";
 import "../../css/components/Modal/ReportAcceptModal.css";
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
-function ReportAcceptModal({ reportacceptshow, ReportAcceptClose }) {
 
-  const handleAcceptRejectModal = (action) => {
-    console.log(`${action} 버튼 클릭됨`);
+function ReportAcceptModal({ reportacceptshow, ReportAcceptClose, restreport, userreport }) {
 
-    // 여기서 상태를 업데이트하거나, API 호출 등의 작업을 수행할 수 있음
+  const handleAcceptRejectModal = async (action) => {
+    let reportStatus;
+    if(action === "승인") {
+      reportStatus = 'C';
+    } else {
+      reportStatus = 'B';
+    }
+
+    try {
+      const storedToken = localStorage.getItem('token');
+      const userinfo = jwtDecode(storedToken);
+      const adminId = userinfo.object.loginDto.id;
+      
+      let response;
+      if (restreport) {
+        response = await axios.put("https://waitmate.shop/api/rest/report", {
+          restReportId: restreport.restReportId,
+          reportStatus,
+          adminId
+        });
+      } else if (userreport) {
+        response = await axios.put("https://waitmate.shop/api/userreport", {
+          userReportId: userreport.userReportId,
+          reportStatus,
+          adminId
+        });
+      }
+
+      if (!response || response.data <= 0) {
+        throw new Error("Failed to fetch");
+      } else {
+        alert('신고 처리 완료');
+      }
+
+    } catch (error) {
+      console.error("Error changing state:", error);
+    }
 
     ReportAcceptClose();
   };
+
 
   return (
     <div
