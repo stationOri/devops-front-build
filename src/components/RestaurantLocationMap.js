@@ -25,7 +25,7 @@ const RestaurantLocationMap = ({ address }) => {
     });
 
     const addMarker = async () => {
-      const apiUrl = "/api/req/address";
+      const apiUrl = "/vwapi/req/address";
       const params = {
         service: "address",
         request: "getcoord",
