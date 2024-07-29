@@ -130,7 +130,7 @@ const handelIsopen = async () => {
 
   const fetchRestaurant = async () => {
     try {
-      const response = await fetch(`https://waitmate.shop/api/restaurants/${restId}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/restaurants/${restId}`);
       if (!response.ok) {
         throw new Error("Failed to fetch restaurant");
       }
