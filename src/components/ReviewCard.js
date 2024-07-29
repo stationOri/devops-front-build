@@ -37,7 +37,7 @@ const ReviewCard = ({ review, userId, restId }) => {
           console.log(liked, likeNum)
         } else {
           console.log(liked, likeNum)
-          await axios.post(`https://waitmate.shop/api/review/likes/review/${review.reviewId}/user/${userId}`);
+          await axios.post(`https://waitmate.shop/api/review/like/review/${review.reviewId}/user/${userId}`);
           setLiked(true);
           setLikeNum(likeNum + 1);
           console.log(liked, likeNum)
