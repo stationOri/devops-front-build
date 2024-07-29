@@ -595,7 +595,7 @@ const Mypage = ({ userId, onCardClick }) => {
                       keyword3={favorite.keyword3}
                       isFavorite={favorite.favorite}
                       toggleFavorite={toggleFavorite}
-                      onCardClick={() => handleCardClick(favorite.restaurantId)}
+                      onCardClick={() => handleCardClick(favorite.restId)}
                     />
                   ))
               )}

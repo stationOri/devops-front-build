@@ -116,7 +116,6 @@ const Main = ({ userId, onCardClick }) => {
                   className="mainRestExPhoto"
                   src={selectedRestaurant.restPhoto}
                   alt=""
-                  onCardClick={() => handleCardClick(selectedRestaurant.restId)}
                 />
                 <div className="reviewleft">
                   <div className="maincardrestname">
@@ -170,7 +169,7 @@ const Main = ({ userId, onCardClick }) => {
               >
                 {index + 1}
               </div>
-              <img className="rankPhoto" src={rest.restPhoto} alt="" />
+              <img className="rankPhoto" src={rest.restPhoto} alt="" onCardClick={() => handleCardClick(rest.restId)}/>
               <div className="MainRestNameWrapper">
                 <div className="MainRestName">{rest.restName}</div>
                 <div className="MainKeywordWrapperMini">
