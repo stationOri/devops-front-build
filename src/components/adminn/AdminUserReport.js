@@ -1,8 +1,9 @@
-import "../../css/components/adminn/AdminRestReservation.css";
 import React, { useState, useEffect } from "react";
+import "../../css/components/adminn/AdminRestReservation.css";
 import Pagination from "../Pagination";
 import Search from "../../assets/images/sidebar/search.png";
 import ReportAcceptModal from "../Modal/ReportAcceptModal";
+import Loading from "../Loading";
 
 function AdminUserReport() {
   const [readyRest, setReadyRest] = useState([]);
@@ -222,7 +223,7 @@ function AdminUserReport() {
           </div>
         </div>
       ) : (
-        <p>Loading...</p>
+        <Loading />
       )}
       <Pagination
         totalItems={filteredItems.length}
@@ -234,6 +235,7 @@ function AdminUserReport() {
         reportacceptshow={reportacceptshow}
         ReportAcceptClose={ReportAcceptClose}
         userreport={selectedReservation}
+        refreshData={getRestData}  // 데이터를 다시 가져오는 함수 전달
       />
     </div>
   );

@@ -4,7 +4,7 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
 
-function ReportAcceptModal({ reportacceptshow, ReportAcceptClose, restreport, userreport }) {
+function ReportAcceptModal({ reportacceptshow, ReportAcceptClose, restreport, userreport, refreshData }) {
 
   const handleAcceptRejectModal = async (action) => {
     let reportStatus;
@@ -38,6 +38,7 @@ function ReportAcceptModal({ reportacceptshow, ReportAcceptClose, restreport, us
         throw new Error("Failed to fetch");
       } else {
         alert('신고 처리 완료');
+        refreshData();
       }
 
     } catch (error) {
