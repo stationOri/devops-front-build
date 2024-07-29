@@ -43,11 +43,8 @@ function MenuModal({ restId, onSuccess }) {
         formData.append('file', file);
       }
       try {
-<<<<<<< Updated upstream
         const response = await axios.put(`${process.env.REACT_APP_API_URI}/api/restaurants/menu/${menuId}`, formData, {
-=======
-        const response = await axios.put(`http://localhost:8080/api/restaurants/menu/${menuId}`, formData, {
->>>>>>> Stashed changes
+
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -68,11 +65,8 @@ function MenuModal({ restId, onSuccess }) {
         formData.append('file', file);
       }
       try {
-<<<<<<< Updated upstream
         const response = await axios.post('${process.env.REACT_APP_API_URI}/api/restaurants/menu', formData, {
-=======
-        const response = await axios.post('http://localhost:8080/api/restaurants/menu', formData, {
->>>>>>> Stashed changes
+
           headers: {
             'Content-Type': 'multipart/form-data',
           },

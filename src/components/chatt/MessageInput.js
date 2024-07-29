@@ -20,11 +20,8 @@ function MessageInput({ chattingRoomId, userId, onMessageSent, btnColor = "#FF8A
   useEffect(() => {
     const fetchChatRoomDetails = async () => {
       try {
-<<<<<<< Updated upstream
         const response = await fetch(`${process.env.REACT_APP_API_URI}/api/chat/user/${userId}`);
-=======
-        const response = await fetch(`http://localhost:8080/api/chat/user/${userId}`);
->>>>>>> Stashed changes
+
         if (!response.ok) {
           throw new Error("Failed to fetch chat room details");
         }
@@ -65,11 +62,8 @@ function MessageInput({ chattingRoomId, userId, onMessageSent, btnColor = "#FF8A
     };
 
     try {
-<<<<<<< Updated upstream
       const response = await fetch("${process.env.REACT_APP_API_URI}/api/chat/chat", {
-=======
-      const response = await fetch("http://localhost:8080/api/chat/chat", {
->>>>>>> Stashed changes
+
         method: "POST",
         headers: {
           "Content-Type": "application/json",

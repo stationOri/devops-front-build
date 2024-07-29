@@ -15,11 +15,8 @@ function NicknameEditModal({ EditClose, editshow, userId, onSuccess }) {
     };
 
     try {
-<<<<<<< Updated upstream
       const response = await fetch(`${process.env.REACT_APP_API_URI}/api/user/${userId}`, {
-=======
-      const response = await fetch(`http://localhost:8080/api/user/${userId}`, {
->>>>>>> Stashed changes
+
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -9,11 +9,9 @@ function AdminResCancelModal({ admincancelshow, reservation, AdminCancelClose })
   const handleResCancel = async () => {
     console.log(reservation);
     try{
-<<<<<<< Updated upstream
+
       const response = await  axios.put(`${process.env.REACT_APP_API_URI}/api/reservations/status/${reservation.res_id}`, {
-=======
-      const response = await  axios.put(`http://localhost:8080/api/reservations/status/${reservation.res_id}`, {
->>>>>>> Stashed changes
+
         status: "RESERVATION_CANCELED_BYADMIN",
         reason: ""
       }, {

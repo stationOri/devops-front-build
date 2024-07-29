@@ -18,11 +18,8 @@ function UserBlacklist() {
 
   const getRestData = async () => {
     try {
-<<<<<<< Updated upstream
       const response = await fetch("${process.env.REACT_APP_API_URI}/black/user");
-=======
-      const response = await fetch("http://localhost:8080/black/user");
->>>>>>> Stashed changes
+
       if (!response.ok) {
         throw new Error("Failed to fetch");
       }

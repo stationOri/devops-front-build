@@ -29,11 +29,8 @@ function AdminUserList() {
 
   const getRestData = async () => {
     try {
-<<<<<<< Updated upstream
       const response = await fetch("${process.env.REACT_APP_API_URI}/api/user");
-=======
-      const response = await fetch("http://localhost:8080/api/user");
->>>>>>> Stashed changes
+
       if (!response.ok) {
         throw new Error("Failed to fetch");
       }
