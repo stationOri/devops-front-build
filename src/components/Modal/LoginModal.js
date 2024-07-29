@@ -9,7 +9,7 @@ function LoginModal({ loginClose, loginshow }) {
 
   const handleGoToNaverLogin = async () => {
     try {
-      const response = await axios.get("${process.env.REACT_APP_API_URI}/api/login"); // 서버의 네이버 로그인 엔드포인트 호출
+      const response = await axios.get(`${process.env.REACT_APP_API_URI}/api/login`); // 서버의 네이버 로그인 엔드포인트 호출
       const loginUrl = response.data;
       window.location.href = loginUrl; // 리디렉션 URL로 이동
     } catch (error) {
