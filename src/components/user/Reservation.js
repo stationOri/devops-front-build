@@ -25,8 +25,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
   const [menuQuantities, setMenuQuantities] = useState({});
   const [checkBoxChecked, setCheckBoxChecked] = useState(false);
   const [reqText, setReqText] = useState("");
-  const [queueStatus, setQueueStatus] = useState([]);
-  const [queuePosition, setQueuePosition] = useState(null);
+
   const convertDayToKorean = (day) => {
     switch (day) {
       case "MON":
@@ -229,23 +228,28 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
       koreanDate.getMonth() + 1
     ).padStart(2, "0")}-${String(koreanDate.getDate()).padStart(2, "0")}`;
   }
-// 웹소켓 테스트테스트테스트
-  useEffect(() => {
-    const socket = new WebSocket('ws://localhost:8080/queue');
 
-    socket.onmessage = (event) => {
-      const message = JSON.parse(event.data);
-      setQueueStatus((prevStatus) => [...prevStatus, message]);
-      if (message.userId === userId) {
-        setQueuePosition(message.position);
-      }
-    };
-
-    return () => {
-      socket.close();
-    };
-  }, [userId]);
-
+  // const handleEnrollReservation = () => {
+  //   console.log("예약 완료");
+  //   console.log(new Date().toISOString().split("T")[0]); // 예약 신청일
+  //   console.log(toKoreanDateString(selectedDate)); // 예약 날짜
+  //   console.log(selectedTime); // 예약 시간
+  //   console.log(selectedGuests); // 예약 인원
+  //   menus.forEach((menu) => {
+  //     if (menuQuantities[menu.menuId] > 0) {
+  //       console.log(`${menu.menuName}`); // 선택한 메뉴
+  //       console.log(`${menuQuantities[menu.menuId]}`); // 수량
+  //     }
+  //   });
+  //   console.log(reqText); // 요청사항 출력
+  //   let depositAmount;
+  //   if (restInfo && restInfo.restDepositMethod === "A") {
+  //     depositAmount = restInfo.restDeposit * selectedGuests;
+  //   } else {
+  //     depositAmount = calculateTotalPrice() * 0.2;
+  //   }
+  //   console.log(depositAmount); // 예약금 출력
+  // };
   const handleEnrollReservation = async (e) => {
     e.preventDefault();
     const menulist = menus
@@ -275,7 +279,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
     try {
       console.log(menulist);
       const response = await axios.post(
-        "${process.env.REACT_APP_API_URI}/api/reservations/reservationcheck",
+        `${process.env.REACT_APP_API_URI}/api/reservations/reservationcheck`,
         reservationReqDto,
         {
           headers: { "Content-Type": "application/json" },
@@ -311,7 +315,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
       } else {
         try {
           const notified = await axios.post(
-            "${process.env.REACT_APP_API_URI}/api/payment/validation",
+            `${process.env.REACT_APP_API_URI}/api/payment/validation`,
             {
               imp_uid: response.imp_uid,
               merchant_uid: response.merchant_uid,
@@ -334,7 +338,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
             };
             try {
               const reservationResponse = await axios.post(
-                "${process.env.REACT_APP_API_URI}/api/reservations/reservation",
+                `${process.env.REACT_APP_API_URI}/api/reservations/reservation`,
                 combinedDto,
                 {
                   headers: { "Content-Type": "application/json" },
@@ -576,7 +580,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
                   ? restInfo.restDepositMethod === "A"
                     ? `${restInfo.restDeposit * selectedGuests} 원`
                     : `${
-                        Math.ceil((calculateTotalPrice() * 0.2) / 100) * 100
+                        Math.floor((calculateTotalPrice() * 0.2))
                       } 원`
                   : "0원"}
               </div>
