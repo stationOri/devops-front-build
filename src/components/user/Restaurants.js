@@ -187,11 +187,10 @@ const Restaurants = ({ userId, onCardClick }) => {
     let filtered = restaurants;
 
     if (locationFilter) {
-      filtered = filtered.filter((restaurant) =>
-        restaurant.restAddress
-          .toLowerCase()
-          .startsWith(locationFilter.toLowerCase())
-      );
+      filtered = filtered.filter((restaurant) => {
+        const address = restaurant.restAddress || "";
+        return address.toLowerCase().startsWith(locationFilter.toLowerCase());
+      });
     }
 
     if (keywordFilters.length > 0) {
