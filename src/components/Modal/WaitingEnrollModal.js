@@ -179,7 +179,7 @@ const WaitingEnrollModal = ({ isOpen, onClose, userId, restId, name }) => {
             onClose();
           }}
           userPhone={userPhone}
-          successData={successData}
+          userId={userId}
         />
       )}
     </>
