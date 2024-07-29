@@ -111,7 +111,39 @@ function WaitingManagement({ restId, onMenuClick }) {
           `Failed to update status. Status code: ${response.status}. Response: ${errorText}`
         );
       }
-      alert("변경 완료")
+      alert("변경 완료");
+      await getWait();
+      await getWaitStatus();
+      await getWaitList();
+    } catch (error) {
+      console.error("Error updating wait status:", error);
+    }
+  };
+
+  //사용자 웨이팅 상태 업데이트
+  const updateuserWaitStatus = async (status, waitingId) => {
+    try {
+      console.log(
+        `Updating wait status: ${status} for waitingId: ${waitingId}`
+      );
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URI}/api/waiting/${waitingId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(status),
+        }
+      );
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(
+          `Failed to update status. Status code: ${response.status}. Response: ${errorText}`
+        );
+      }
+
       await getWait();
       await getWaitStatus();
       await getWaitList();
@@ -191,7 +223,9 @@ function WaitingManagement({ restId, onMenuClick }) {
           <td className="status-in-queue">
             <button
               className="requestBtnOrange"
-              onClick={() => updateWaitStatus("WALKIN_REQUESTED", waitingId)}
+              onClick={() =>
+                updateuserWaitStatus("WALKIN_REQUESTED", waitingId)
+              }
             >
               입장 요청
             </button>
@@ -203,13 +237,13 @@ function WaitingManagement({ restId, onMenuClick }) {
             입장요청완료
             <button
               className="requestBtnOrange"
-              onClick={() => updateWaitStatus("WALKIN", waitingId)}
+              onClick={() => updateuserWaitStatus("WALKIN", waitingId)}
             >
               입장 완료
             </button>
             <button
               className="requestBtnOrange"
-              onClick={() => updateWaitStatus("NOSHOW", waitingId)}
+              onClick={() => updateuserWaitStatus("NOSHOW", waitingId)}
             >
               노쇼
             </button>
@@ -301,12 +335,17 @@ function WaitingManagement({ restId, onMenuClick }) {
               <tbody>
                 {wait ? (
                   currentItems.length ? (
-                    currentItems.map((wait) => {
+                    currentItems.map((wait, index) => {
                       const tableItem = tableOrder.find(
                         (item) => item.waitingId === wait.waitingId
                       );
+
+                      const uniqueKey = wait.waitingId
+                        ? wait.waitingId
+                        : `${index}-${new Date().getTime()}`;
+
                       return (
-                        <tr key={wait.waitingId}>
+                        <tr key={uniqueKey}>
                           <td>
                             {wait.waitingStatus !== "None" && tableItem?.order}
                           </td>
@@ -343,14 +382,21 @@ function WaitingManagement({ restId, onMenuClick }) {
                     <tr>
                       <td
                         colSpan={5}
-                        style={{ textAlign: "center", paddingBottom: "20px", backgroundColor: "#fff" }}
+                        style={{
+                          textAlign: "center",
+                          paddingBottom: "20px",
+                          backgroundColor: "#fff",
+                        }}
                       >
-                        해당 기능을 사용하려면 가게 정보 수정 화면에서 원격 줄서기 기능을 활성화 해주세요.
+                        해당 기능을 사용하려면 가게 정보 수정 화면에서 원격
+                        줄서기 기능을 활성화 해주세요.
                       </td>
                     </tr>
                     <tr>
                       <td colSpan={5} style={{ textAlign: "center" }}>
-                        <button onClick={gotoRestInfo}>가게 정보 수정하러 가기</button>
+                        <button onClick={gotoRestInfo}>
+                          가게 정보 수정하러 가기
+                        </button>
                       </td>
                     </tr>
                   </>
