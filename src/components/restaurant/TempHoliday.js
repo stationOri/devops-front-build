@@ -60,7 +60,7 @@ function TempHoliday({ restId }) {
   
     try {
       // 임시 휴무 등록
-      await axios.post("${process.env.REACT_APP_API_URI}/api/restaurants/rest-temp-holiday", {
+      await axios.post(`${process.env.REACT_APP_API_URI}/api/restaurants/rest-temp-holiday`, {
         restId,
         startDate,
         endDate,

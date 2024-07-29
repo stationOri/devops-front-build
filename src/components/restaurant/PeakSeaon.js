@@ -73,7 +73,7 @@ function PeakSeason({ restId }) {
     }
 
     try {
-      await axios.post("${process.env.REACT_APP_API_URI}/api/restaurants/peak", {
+      await axios.post(`${process.env.REACT_APP_API_URI}/api/restaurants/peak`, {
         restId,
         dateStart: selectedDateStart,
         dateEnd: selectedDateEnd,

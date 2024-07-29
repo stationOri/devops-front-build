@@ -29,7 +29,7 @@ function AdminUserList() {
 
   const getRestData = async () => {
     try {
-      const response = await fetch("${process.env.REACT_APP_API_URI}/api/user");
+      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/user`);
 
       if (!response.ok) {
         throw new Error("Failed to fetch");

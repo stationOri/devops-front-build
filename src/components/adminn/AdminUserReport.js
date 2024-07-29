@@ -25,7 +25,7 @@ function AdminUserReport() {
 
   const getRestData = async () => {
     try {
-      const response = await fetch("${process.env.REACT_APP_API_URI}/api/userreport");
+      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/userreport`);
 
       if (!response.ok) {
         throw new Error("Failed to fetch");

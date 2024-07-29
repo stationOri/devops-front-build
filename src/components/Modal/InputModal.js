@@ -26,7 +26,7 @@ function InputModal() {
     };
 
     try {
-      const response = await fetch("${process.env.REACT_APP_API_URI}/api/rest/report", {
+      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/rest/report`, {
 
         method: "POST",
         headers: {
@@ -56,7 +56,7 @@ function InputModal() {
     console.log("Posting user report with data:", reportData); // 데이터 확인
 
     try {
-      const response = await fetch("${process.env.REACT_APP_API_URI}/api/userreport", {
+      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/userreport`, {
 
         method: "POST",
         headers: {

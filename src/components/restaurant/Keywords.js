@@ -12,7 +12,7 @@ function Keywords({ restId }) {
   useEffect(() => {
     const fetchKeywords = async () => {
       try {
-        const response = await axios.get("${process.env.REACT_APP_API_URI}/api/keywords");
+        const response = await axios.get(`${process.env.REACT_APP_API_URI}/api/keywords`);
         const keywords = response.data;
         const formattedKeywords = keywords.map((keyword) => ({
           value: keyword.keywordId,

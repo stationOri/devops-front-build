@@ -62,7 +62,7 @@ function MessageInput({ chattingRoomId, userId, onMessageSent, btnColor = "#FF8A
     };
 
     try {
-      const response = await fetch("${process.env.REACT_APP_API_URI}/api/chat/chat", {
+      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/chat/chat`, {
 
         method: "POST",
         headers: {
