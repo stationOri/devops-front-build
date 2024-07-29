@@ -83,7 +83,7 @@ const WaitingEnrollModal = ({ isOpen, onClose, userId, restId, name }) => {
         userId: userId,
         restId: restId,
         waitingPpl: selectedGuests,
-        waitingPhone: userPhoneString,
+        watingPhone: userPhoneString,
       });
       console.log("POST 요청 성공", response.data);
       if (response.data === -1) {
