@@ -1,38 +1,44 @@
-
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import "../../css/components/Modal/CheckModal.css";
 import "../../css/components/Modal/CancelModal.css";
 import "../../css/components/Modal/RestCancelModal.css";
 import axios from 'axios';
+
 function RestStatusModal({ RestChangeClose, restchangeshow, reservation }) {
   const [selectedReason, setSelectedReason] = useState(null);
 
-
   const handleCancel = async () => {
     if (selectedReason) {
-      try{
-        
-        const response = await  axios.put(`${process.env.REACT_APP_API_URI}/api/reservations/status/${reservation.resId}`, {
-          status:  selectedReason === '노쇼'? 'NOSHOW' : 'VISITED',
+      const currentTime = new Date();
+      const reservationTime = new Date(reservation.resDate);
+      const oneHourAfterReservation = new Date(reservationTime.getTime() + 60 * 60 * 1000);
+
+      if (selectedReason === '노쇼' && currentTime < oneHourAfterReservation) {
+        alert('예약 시간 한 시간 후부터 노쇼로 업데이트할 수 있습니다.');
+        return;
+      }
+
+      try {
+        const response = await axios.put(`${process.env.REACT_APP_API_URI}/api/reservations/status/${reservation.resId}`, {
+          status: selectedReason === '노쇼' ? 'NOSHOW' : 'VISITED',
           reason: ""
         }, {
           headers: { "Content-Type": "application/json" }
         });
-        if (response.data==='success') {
-            alert('예약 상태 변경 완료, 화면에 상태 반영을 원한다면 날짜 선택 및 조회를 다시 해주세요.')
-          } else {
-            alert(response.data);
-          }
-        } catch (error) {
-          console.error('Error updating reservation status:', error);
-          alert('An error occurred while updating reservation status.')
+        if (response.data === 'success') {
+          alert('예약 상태 변경 완료, 화면에 상태 반영을 원한다면 날짜 선택 및 조회를 다시 해주세요.');
+        } else {
+          alert(response.data);
         }
-        
-        RestChangeClose();
+      } catch (error) {
+        console.error('Error updating reservation status:', error);
+        alert('예약 상태를 업데이트하는 중 오류가 발생했습니다.');
+      }
+
+      RestChangeClose();
     } else {
       console.log('변경할 예약의 상태를 선택해 주세요.');
     }
-    
   };
 
   const handleReject = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../../css/components/Modal/CheckModal.css";
 import "../../css/components/Modal/CancelModal.css";
 import "../../css/components/Modal/RevAcceptModal.css";
@@ -10,10 +10,17 @@ function RestStatusChangeModal({
   reservation,
   RestChangeShow,
   RestCancelShow
-
 }) {
-  
   const handlenavigate = () => {
+    console.log(reservation)
+    const today = new Date().toISOString().split("T")[0];
+    const reservationDate = reservation.resDate.split(" ")[0];
+
+    if (reservationDate !== today) {
+      alert("상태 변경이 불가능합니다. 예약 날짜가 오늘이 아닙니다.");
+      return;
+    }
+
     RevDetailClose();
     RestChangeShow(reservation);
   };
