@@ -124,9 +124,11 @@ function SideBar({ onMenuClick, isExtended, toggleSidebar, setUserId }) {
     window.history.replaceState({}, document.title, currentUrl.toString());
     setIsLoggedIn(false);
     setUsername("Guest");
-    navigate('/');
     localStorage.removeItem('token');
+    handleSidebarTextClick("홈");
+    navigate('/');
   };
+  
 
   // 수신자 ID를 설정
   const handleOpenSelectReceiverModal = () => {
@@ -150,7 +152,7 @@ function SideBar({ onMenuClick, isExtended, toggleSidebar, setUserId }) {
           <img src={Logo} alt="" className="sidebarLogo" />
           {isExtended && <div className="guestText">{username}</div>}
         </div>
-        <div
+        {/* <div
           className={`sidebarsearchboxWrapper ${isExtended ? "" : "hidden"}`}
         >
           <img src={Search} alt="" className="searchLogo" />
@@ -161,7 +163,7 @@ function SideBar({ onMenuClick, isExtended, toggleSidebar, setUserId }) {
               placeholder="Search"
             />
           )}
-        </div>
+        </div> */}
       </div>
       <button className="extendbtn" onClick={toggleSidebar}>
         <img src={ExtendBtn} alt="" className="extendbtnImg" />

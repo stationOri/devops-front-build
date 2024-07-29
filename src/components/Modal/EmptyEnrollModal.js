@@ -52,7 +52,11 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, name }) => {
 
   const fetchOpentimes = async () => {
     try {
+<<<<<<< Updated upstream
       const response = await fetch(`${process.env.REACT_APP_API_URI}/api/opentime/${id}`);
+=======
+      const response = await fetch(`http://localhost:8080/api/opentime/${id}`);
+>>>>>>> Stashed changes
       if (!response.ok) {
         throw new Error("Failed to fetch opentimes");
       }
@@ -73,7 +77,11 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, name }) => {
     try {
       const formattedDate = toKoreanDateString(new Date(date)); // 날짜를 KST로 변환
       const response = await fetch(
+<<<<<<< Updated upstream
         `${process.env.REACT_APP_API_URI}/api/reservations/${id}/times/${formattedDate}`
+=======
+        `http://localhost:8080/api/reservations/${id}/times/${formattedDate}`
+>>>>>>> Stashed changes
       );
       if (!response.ok) {
         throw new Error("사용 가능한 시간 가져오기 실패");
@@ -106,7 +114,11 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, name }) => {
   const fetchRestInfo = async () => {
     try {
       const response = await fetch(
+<<<<<<< Updated upstream
         `${process.env.REACT_APP_API_URI}/api/restaurants/info/res/${id}`
+=======
+        `http://localhost:8080/api/restaurants/info/res/${id}`
+>>>>>>> Stashed changes
       );
       if (!response.ok) {
         throw new Error("Failed to fetch restaurant info");
@@ -160,7 +172,11 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, name }) => {
 
   const handleOpenModal = async () => {
     try {
+<<<<<<< Updated upstream
       await axios.post(`${process.env.REACT_APP_API_URI}/api/vacant`, {
+=======
+      await axios.post(`http://localhost:8080/api/vacant`, {
+>>>>>>> Stashed changes
         userId: userId,
         restId: id,
         date: toKoreanDateString(selectedDate),

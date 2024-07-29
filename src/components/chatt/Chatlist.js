@@ -29,7 +29,11 @@ function ChatList({
 
   const getChatList = async () => {
     try {
+<<<<<<< Updated upstream
       const response = await fetch(`${process.env.REACT_APP_API_URI}/api/chat/user/${userId}`);
+=======
+      const response = await fetch(`http://localhost:8080/api/chat/user/${userId}`);
+>>>>>>> Stashed changes
       if (!response.ok) {
         throw new Error("Failed to fetch");
       }

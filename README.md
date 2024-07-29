@@ -9,7 +9,11 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
+<<<<<<< Updated upstream
 Open [http://${process.env.REACT_APP_API_URI}/api:3000](http://${process.env.REACT_APP_API_URI}/api:3000) to view it in your browser.
+=======
+Open [http://http://localhost:8080/api:3000](http://http://localhost:8080/api:3000) to view it in your browser.
+>>>>>>> Stashed changes
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.

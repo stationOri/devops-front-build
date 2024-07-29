@@ -26,7 +26,11 @@ function InputModal() {
     };
 
     try {
+<<<<<<< Updated upstream
       const response = await fetch("${process.env.REACT_APP_API_URI}/api/rest/report", {
+=======
+      const response = await fetch("http://localhost:8080/api/rest/report", {
+>>>>>>> Stashed changes
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +59,11 @@ function InputModal() {
     console.log("Posting user report with data:", reportData); // 데이터 확인
 
     try {
+<<<<<<< Updated upstream
       const response = await fetch("${process.env.REACT_APP_API_URI}/api/userreport", {
+=======
+      const response = await fetch("http://localhost:8080/api/userreport", {
+>>>>>>> Stashed changes
         method: "POST",
         headers: {
           "Content-Type": "application/json",

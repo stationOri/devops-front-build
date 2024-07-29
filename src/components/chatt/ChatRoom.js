@@ -32,7 +32,11 @@ function ChatRoom({
   const getChatRoom = async () => {
     try {
       const response = await fetch(
+<<<<<<< Updated upstream
         `${process.env.REACT_APP_API_URI}/api/chat/chat/${chattingRoomId}`
+=======
+        `http://localhost:8080/api/chat/chat/${chattingRoomId}`
+>>>>>>> Stashed changes
       );
       if (!response.ok) {
         throw new Error("Failed to fetch");
