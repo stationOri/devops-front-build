@@ -155,7 +155,7 @@
 .button-like:focus span {
   color: #8a8a8a;
 }
-
+/* 
 .button-like:hover {
   border-color: #cc4b37;
   background-color: transparent;
@@ -164,27 +164,32 @@
 .button-like:hover .fa,
 .button-like:hover span {
   color: #cc4b37;
-}
+} */
 
-.liked {
+/* .liked {
   background-color: #cc4b37;
   border-color: #cc4b37;
-}
+} */
 
 .liked .fa,
 .liked span {
   color: #fefefe;
 }
 
-.liked:focus {
+.button-like.liked {
+  background-color: #cc4b37;
+  border-color: #fefefe;
+}
+
+/* .liked:focus {
   background-color: #cc4b37;
 }
 
 .liked:focus .fa,
 .liked:focus span {
   color: #fefefe;
-}
-
+} */
+/* 
 .liked:hover {
   background-color: #cc4b37;
   border-color: #cc4b37;
@@ -193,7 +198,7 @@
 .liked:hover .fa,
 .liked:hover span {
   color: #fefefe;
-}
+} */
 
 
 /* 메인 리뷰 */
