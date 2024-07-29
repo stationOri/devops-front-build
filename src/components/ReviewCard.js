@@ -31,7 +31,7 @@ const ReviewCard = ({ review, userId, restId }) => {
       try {
         if (liked) {
           console.log(liked, likeNum)
-          await axios.delete(`https://waitmate.shop/api/review/review/${review.reviewId}/user/${userId}`);
+          await axios.delete(`https://waitmate.shop/api/review/${review.reviewId}/user/${userId}`);
           setLiked(false);
           setLikeNum(likeNum - 1);
           console.log(liked, likeNum)
@@ -79,7 +79,7 @@ const ReviewCard = ({ review, userId, restId }) => {
         <div className="review-info-box">
           <p className="reviewer-name">{review.userNickname}</p>
           <div className="review-like-box">
-            <button className="button-like" onClick={handleLikes}>
+            <button className={`button-like ${liked ? "liked" : ""}`} onClick={handleLikes}>
               <div
                 className={`review-like-btn ${liked ? "liked" : ""}`}
               >
