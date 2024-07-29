@@ -51,7 +51,7 @@ function UserMain() {
           <HeaderOrange />
           <div className="restmainrealcontents">
             {selectedMenu === "홈" && (
-              <Main onMenuEditClick={handleMenuClick} userId={userId} />
+              <Main onMenuEditClick={handleMenuClick} userId={userId} onCardClick={handleCardClick}/>
             )}
             {selectedMenu === "식당 조회" && (
               <Restaurants

@@ -7,7 +7,7 @@ import "../../css/pages/Main.css";
 import ReviewCardMain from "../../components/ReviewCardMain";
 import useGeolocation from "./useGeolocation";
 
-const Main = ({ userId }) => {
+const Main = ({ userId, onCardClick }) => {
   const [loading, setLoading] = useState(true);
   const [bannerFoods, setBannerFoods] = useState([]);
   const [trendingFoods, setTrendingFoods] = useState([]);
@@ -89,6 +89,11 @@ const Main = ({ userId }) => {
     }
   }, [userLat, userLng]);
 
+  const handleCardClick = (restId) => {
+    onCardClick(restId);
+    console.log(restId);
+  };
+
   return (
     <div
       style={{
@@ -111,6 +116,7 @@ const Main = ({ userId }) => {
                   className="mainRestExPhoto"
                   src={selectedRestaurant.restPhoto}
                   alt=""
+                  onCardClick={() => handleCardClick(selectedRestaurant.restId)}
                 />
                 <div className="reviewleft">
                   <div className="maincardrestname">
