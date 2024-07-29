@@ -73,7 +73,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
   const fetchRestaurant = async () => {
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/restaurants/${restId}`
+        `${process.env.REACT_APP_API_URI}/api/restaurants/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch restaurant");
@@ -89,7 +89,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
 
   const fetchOpentimes = async () => {
     try {
-      const response = await fetch(`https://waitmate.shop/api/opentime/${restId}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/opentime/${restId}`);
       if (!response.ok) {
         throw new Error("Failed to fetch opentimes");
       }
@@ -109,7 +109,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
   const fetchMenus = async () => {
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/restaurants/menu/${restId}`
+        `${process.env.REACT_APP_API_URI}/api/restaurants/menu/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch menus");
@@ -125,7 +125,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
     try {
       const formattedDate = toKoreanDateString(new Date(date)); // 날짜를 KST로 변환
       const response = await fetch(
-        `https://waitmate.shop/api/reservations/${restId}/times/${formattedDate}`
+        `${process.env.REACT_APP_API_URI}/api/reservations/${restId}/times/${formattedDate}`
       );
       if (!response.ok) {
         throw new Error("사용 가능한 시간 가져오기 실패");
@@ -151,7 +151,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
   const fetchRestInfo = async () => {
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/restaurants/info/res/${restId}`
+        `${process.env.REACT_APP_API_URI}/api/restaurants/info/res/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch restaurant info");
@@ -279,7 +279,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
     try {
       console.log(menulist);
       const response = await axios.post(
-        "https://waitmate.shop/api/reservations/reservationcheck",
+        "${process.env.REACT_APP_API_URI}/api/reservations/reservationcheck",
         reservationReqDto,
         {
           headers: { "Content-Type": "application/json" },
@@ -315,7 +315,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
       } else {
         try {
           const notified = await axios.post(
-            "https://waitmate.shop/api/payment/validation",
+            "${process.env.REACT_APP_API_URI}/api/payment/validation",
             {
               imp_uid: response.imp_uid,
               merchant_uid: response.merchant_uid,
@@ -338,7 +338,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
             };
             try {
               const reservationResponse = await axios.post(
-                "https://waitmate.shop/api/reservations/reservation",
+                "${process.env.REACT_APP_API_URI}/api/reservations/reservation",
                 combinedDto,
                 {
                   headers: { "Content-Type": "application/json" },

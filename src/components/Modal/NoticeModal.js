@@ -14,7 +14,7 @@ function NoticeModal({ NoticeClose, noticeshow, restId, onSuccess }) {
 
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/restaurants/info/notice/${restId}`,
+        `${process.env.REACT_APP_API_URI}/api/restaurants/info/notice/${restId}`,
         {
           method: "PUT",
           headers: {

@@ -43,7 +43,7 @@ function MenuModal({ restId, onSuccess }) {
         formData.append('file', file);
       }
       try {
-        const response = await axios.put(`https://waitmate.shop/api/restaurants/menu/${menuId}`, formData, {
+        const response = await axios.put(`${process.env.REACT_APP_API_URI}/api/restaurants/menu/${menuId}`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -64,7 +64,7 @@ function MenuModal({ restId, onSuccess }) {
         formData.append('file', file);
       }
       try {
-        const response = await axios.post('https://waitmate.shop/api/restaurants/menu', formData, {
+        const response = await axios.post('${process.env.REACT_APP_API_URI}/api/restaurants/menu', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

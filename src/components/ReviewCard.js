@@ -31,13 +31,13 @@ const ReviewCard = ({ review, userId, restId }) => {
       try {
         if (liked) {
           console.log(liked, likeNum)
-          await axios.delete(`https://waitmate.shop/api/review/${review.reviewId}/user/${userId}`);
+          await axios.delete(`${process.env.REACT_APP_API_URI}/api/review/${review.reviewId}/user/${userId}`);
           setLiked(false);
           setLikeNum(likeNum - 1);
           console.log(liked, likeNum)
         } else {
           console.log(liked, likeNum)
-          await axios.post(`https://waitmate.shop/api/review/like/review/${review.reviewId}/user/${userId}`);
+          await axios.post(`${process.env.REACT_APP_API_URI}/api/review/like/review/${review.reviewId}/user/${userId}`);
           setLiked(true);
           setLikeNum(likeNum + 1);
           console.log(liked, likeNum)

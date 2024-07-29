@@ -13,7 +13,7 @@ const MostReservedRestaurantsChart = ({ userId }) => {
   useEffect(() => {
     const fetchMostReservedRestaurants = async () => {
       try {
-        const response = await axios.get(`https://waitmate.shop/api/restaurants/most/${userId}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URI}/api/restaurants/most/${userId}`);
         setData(response.data);
       } catch (error) {
         console.error("Error fetching most reserved restaurants:", error);

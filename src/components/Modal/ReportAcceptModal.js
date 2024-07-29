@@ -21,13 +21,13 @@ function ReportAcceptModal({ reportacceptshow, ReportAcceptClose, restreport, us
       
       let response;
       if (restreport) {
-        response = await axios.put("https://waitmate.shop/api/rest/report", {
+        response = await axios.put("${process.env.REACT_APP_API_URI}/api/rest/report", {
           restReportId: restreport.restReportId,
           reportStatus,
           adminId
         });
       } else if (userreport) {
-        response = await axios.put("https://waitmate.shop/api/userreport", {
+        response = await axios.put("${process.env.REACT_APP_API_URI}/api/userreport", {
           userReportId: userreport.userReportId,
           reportStatus,
           adminId

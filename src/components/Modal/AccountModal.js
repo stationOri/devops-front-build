@@ -11,7 +11,7 @@ function AccountModal({ closeInfoModal, infoshow, restId }) {
 
   const getAccount = async(restId) => {
         try {
-          const response = await axios.get(`https://waitmate.shop/api/restaurants/info/account/${restId}`);          
+          const response = await axios.get(`${process.env.REACT_APP_API_URI}/api/restaurants/info/account/${restId}`);          
           const [bank, number] = response.data.split(" ");
           setAccountNumber(number);
           const initialBank = bankOptions.find(option => option.label === bank);
@@ -46,7 +46,7 @@ function AccountModal({ closeInfoModal, infoshow, restId }) {
   const handleAccountSet = async () => {
     const restAccount=`${selectedBank.label} ${accountNumber}`
         try {
-      const response = await axios.put(`https://waitmate.shop/api/restaurants/info/account/${restId}`, { 
+      const response = await axios.put(`${process.env.REACT_APP_API_URI}/api/restaurants/info/account/${restId}`, { 
          restAccount 
        });
       alert("수정 완료")

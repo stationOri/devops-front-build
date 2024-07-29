@@ -9,7 +9,7 @@ function AdminResCancelModal({ admincancelshow, reservation, AdminCancelClose })
   const handleResCancel = async () => {
     console.log(reservation);
     try{
-      const response = await  axios.put(`https://waitmate.shop/api/reservations/status/${reservation.res_id}`, {
+      const response = await  axios.put(`${process.env.REACT_APP_API_URI}/api/reservations/status/${reservation.res_id}`, {
         status: "RESERVATION_CANCELED_BYADMIN",
         reason: ""
       }, {

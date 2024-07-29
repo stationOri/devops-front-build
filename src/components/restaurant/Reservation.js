@@ -47,7 +47,7 @@ function Reservation({ restId, onMenuClick }) {
   const getWait = useCallback(async () => {
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/restaurants/info/revWait/${restId}`
+        `${process.env.REACT_APP_API_URI}/api/restaurants/info/revWait/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch");
@@ -68,22 +68,22 @@ function Reservation({ restId, onMenuClick }) {
     try {
       const [response1, response2, response3, response4] = await Promise.all([
         axios.get(
-          `https://waitmate.shop/api/reservations/reservation/rest/${restId}/${formatDateFetch(
+          `${process.env.REACT_APP_API_URI}/api/reservations/reservation/rest/${restId}/${formatDateFetch(
             tableDates.today
           )}`
         ),
         axios.get(
-          `https://waitmate.shop/api/reservations/reservation/rest/${restId}/${formatDateFetch(
+          `${process.env.REACT_APP_API_URI}/api/reservations/reservation/rest/${restId}/${formatDateFetch(
             tableDates.day1
           )}`
         ),
         axios.get(
-          `https://waitmate.shop/api/reservations/reservation/rest/${restId}/${formatDateFetch(
+          `${process.env.REACT_APP_API_URI}/api/reservations/reservation/rest/${restId}/${formatDateFetch(
             tableDates.day2
           )}`
         ),
         axios.get(
-          `https://waitmate.shop/api/reservations/reservation/rest/${restId}/${formatDateFetch(
+          `${process.env.REACT_APP_API_URI}/api/reservations/reservation/rest/${restId}/${formatDateFetch(
             tableDates.day3
           )}`
         ),

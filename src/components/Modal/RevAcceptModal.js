@@ -12,7 +12,7 @@ function RevAcceptModal({
 }) {
   const handlenavigate = async () => {
     try{
-      const response = await  axios.put(`https://waitmate.shop/api/reservations/status/${reservation.resId}`, {
+      const response = await  axios.put(`${process.env.REACT_APP_API_URI}/api/reservations/status/${reservation.resId}`, {
         status: "RESERVATION_ACCEPTED",
         reason: ""
       }, {

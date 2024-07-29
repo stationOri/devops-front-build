@@ -21,7 +21,7 @@ function WaitingManagement({ restId, onMenuClick }) {
   const getWait = async () => {
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/restaurants/info/revWait/${restId}`
+        `${process.env.REACT_APP_API_URI}/api/restaurants/info/revWait/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch");
@@ -40,7 +40,7 @@ function WaitingManagement({ restId, onMenuClick }) {
   const getWaitStatus = async () => {
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/restaurants/info/waitingstatus/${restId}`
+        `${process.env.REACT_APP_API_URI}/api/restaurants/info/waitingstatus/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch");
@@ -65,7 +65,7 @@ function WaitingManagement({ restId, onMenuClick }) {
   const getWaitList = async () => {
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/waiting/rest/${restId}`
+        `${process.env.REACT_APP_API_URI}/api/waiting/rest/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch");
@@ -96,7 +96,7 @@ function WaitingManagement({ restId, onMenuClick }) {
   const updateWaitStatus = async (status) => {
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/restaurants/info/rest/${restId}/waitstatus/${status}`,
+        `${process.env.REACT_APP_API_URI}/api/restaurants/info/rest/${restId}/waitstatus/${status}`,
         {
           method: "PUT",
           headers: {

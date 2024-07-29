@@ -66,7 +66,7 @@ function RestaurantSignin() {
     formData.append('file', fileUrl);
 
     try {
-        const response = await axios.post('https://waitmate.shop/api/register/restaurant', formData, {
+        const response = await axios.post('${process.env.REACT_APP_API_URI}/api/register/restaurant', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }

@@ -95,7 +95,7 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
   const fetchRestaurant = async () => {
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/restaurants/${restId}`
+        `${process.env.REACT_APP_API_URI}/api/restaurants/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch restaurant");
@@ -111,7 +111,7 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
   const fetchOpentimes = async () => {
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/opentime/${restId}`
+        `${process.env.REACT_APP_API_URI}/api/opentime/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch opentimes");
@@ -133,7 +133,7 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
   const fetchMenus = async () => {
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/restaurants/menu/${restId}`
+        `${process.env.REACT_APP_API_URI}/api/restaurants/menu/${restId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch menus");
@@ -148,8 +148,8 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
   const fetchReviews = async () => {
     try {
       const url = userId
-        ? `https://waitmate.shop/api/review/rest/${restId}/user/${userId}`
-        : `https://waitmate.shop/api/review/rest/${restId}`;
+        ? `${process.env.REACT_APP_API_URI}/api/review/rest/${restId}/user/${userId}`
+        : `${process.env.REACT_APP_API_URI}/api/review/rest/${restId}`;
 
       const response = await fetch(url);
       if (!response.ok) {

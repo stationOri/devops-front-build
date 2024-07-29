@@ -32,7 +32,7 @@ function ChatRoom({
   const getChatRoom = async () => {
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/chat/chat/${chattingRoomId}`
+        `${process.env.REACT_APP_API_URI}/api/chat/chat/${chattingRoomId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch");

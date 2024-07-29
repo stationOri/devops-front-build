@@ -27,7 +27,7 @@ function AdminRestReservation() {
   const getRestData = async () => {
     try {
       const response = await fetch(
-        "https://waitmate.shop/api/reservations/admin"
+        "${process.env.REACT_APP_API_URI}/api/reservations/admin"
       );
       if (!response.ok) {
         throw new Error("Failed to fetch");

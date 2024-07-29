@@ -13,7 +13,7 @@ function Deposit({ restId }) {
   
 const getDeposit = async (restId) => {
   try {
-    const response = await axios.get(`https://waitmate.shop/api/restaurants/deposit/${restId}`);
+    const response = await axios.get(`${process.env.REACT_APP_API_URI}/api/restaurants/deposit/${restId}`);
     setDeposit(response.data);
   } catch (error) {
     console.error("Error fetching deposit:", error);

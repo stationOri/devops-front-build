@@ -20,7 +20,7 @@ function MessageInput({ chattingRoomId, userId, onMessageSent, btnColor = "#FF8A
   useEffect(() => {
     const fetchChatRoomDetails = async () => {
       try {
-        const response = await fetch(`https://waitmate.shop/api/chat/user/${userId}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URI}/api/chat/user/${userId}`);
         if (!response.ok) {
           throw new Error("Failed to fetch chat room details");
         }
@@ -61,7 +61,7 @@ function MessageInput({ chattingRoomId, userId, onMessageSent, btnColor = "#FF8A
     };
 
     try {
-      const response = await fetch("https://waitmate.shop/api/chat/chat", {
+      const response = await fetch("${process.env.REACT_APP_API_URI}/api/chat/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

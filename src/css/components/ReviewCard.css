@@ -146,7 +146,7 @@
 .button-like span {
   transition: all ease 0.4s;
 }
-
+/* 
 .button-like:focus {
   background-color: transparent;
 }
@@ -154,7 +154,7 @@
 .button-like:focus .fa,
 .button-like:focus span {
   color: #8a8a8a;
-}
+} */
 /* 
 .button-like:hover {
   border-color: #cc4b37;

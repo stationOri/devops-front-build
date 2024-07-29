@@ -30,7 +30,7 @@ function ReviewModal({ ReviewClose, reviewshow, userId, restId, onReviewSuccess 
     if (files.length > 2) formData.append("file3", files[2]);
 
     try {
-      const response = await axios.post("https://waitmate.shop/api/review/review", formData, {
+      const response = await axios.post("${process.env.REACT_APP_API_URI}/api/review/review", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

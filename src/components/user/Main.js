@@ -31,7 +31,7 @@ const Main = ({ userId, onCardClick }) => {
   const getBannerFood = async () => {
     try {
       const response = await fetch(
-        `https://waitmate.shop/api/restaurants/recommend`
+        `${process.env.REACT_APP_API_URI}/api/restaurants/recommend`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch");
@@ -45,7 +45,7 @@ const Main = ({ userId, onCardClick }) => {
 
   const getTrendingFood = async () => {
     try {
-      const response = await fetch(`https://waitmate.shop/api/restaurants/hot`);
+      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/restaurants/hot`);
       if (!response.ok) {
         throw new Error("Failed to fetch");
       }
@@ -59,7 +59,7 @@ const Main = ({ userId, onCardClick }) => {
   const getRestaurantsData = async () => {
     if (userLat && userLng) {
       try {
-        const response = await fetch(`https://waitmate.shop/api/restaurants/near/lat/${userLat}/lng/${userLng}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URI}/api/restaurants/near/lat/${userLat}/lng/${userLng}`);
         if (!response.ok) {
           throw new Error("Failed to fetch");
         }
