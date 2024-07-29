@@ -328,7 +328,7 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
                 <div className="rest-no-review">리뷰가 없습니다</div>
               ) : (
                 currentReviews.map((review) => (
-                  <ReviewCard key={review.id} review={review} />
+                  <ReviewCard key={review.id} review={review} userId={userId} restId={restId}/>
                 ))
               )}
             </div>

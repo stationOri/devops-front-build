@@ -383,11 +383,11 @@ const Mypage = ({ userId, onCardClick }) => {
             <div className="my-info-item">
               <div className="my-info-item-title">{user?.userNickname}</div>
               <div className="my-info-item-content-box">
-                <img src={phoneImg} className="user-info-Img" />
+                <img src={phoneImg} className="user-info-Img" alt=""/>
                 <div className="my-info-item-content">{user?.userPhone}</div>
               </div>
               <div className="my-info-item-content-box">
-                <img src={mailImg} className="user-info-Img" />
+                <img src={mailImg} className="user-info-Img" alt=""/>
                 <div className="my-info-item-content">{user?.userEmail}</div>
               </div>
               <div className="my-info-item-content-box">
@@ -633,7 +633,7 @@ const Mypage = ({ userId, onCardClick }) => {
                 reviewCurrentPage * reviewPerPage
               )
               .map((review) => (
-                <MyReviewCard key={review.reviewId} review={review} />
+                <MyReviewCard key={review.reviewId} review={review} userId={userId}/>
               ))}
             <Pagination
               totalItems={reviews.length}
