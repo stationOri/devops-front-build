@@ -11,17 +11,15 @@ module.exports = function (app) {
       },
     })
   );
-};
 
-// module.exports = function(app) {
-//   app.use(
-//     '/api',
-//     createProxyMiddleware({
-//       target: `${process.env.REACT_APP_API_URI}`,
-//       changeOrigin: true,
-//       pathRewrite: {
-//         '^/api': '/api',
-//       },
-//     })
-//   );
-// };
+  app.use(
+    '/api',
+    createProxyMiddleware({
+      target: 'https://waitmate.shop',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': '/api',
+      },
+    })
+  );
+};

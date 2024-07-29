@@ -169,7 +169,7 @@ const Main = ({ userId, onCardClick }) => {
               >
                 {index + 1}
               </div>
-              <img className="rankPhoto" src={rest.restPhoto} alt="" onCardClick={() => handleCardClick(rest.restId)}/>
+              <img className="rankPhoto" src={rest.restPhoto} alt="" onClick={() => handleCardClick(rest.restId)}/>
               <div className="MainRestNameWrapper">
                 <div className="MainRestName">{rest.restName}</div>
                 <div className="MainKeywordWrapperMini">
