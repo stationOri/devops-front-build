@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -10,8 +9,7 @@ import restIcon from "../../assets/images/modal/rest.png";
 import SuccessModal from "./SuccessModal";
 import { useSuccessModal } from "./SuccessModalContext";
 
-const EmptyEnrollModal = ({ isOpen, onClose, userId, name }) => {
-  const { id } = useParams();
+const EmptyEnrollModal = ({ isOpen, onClose, userId, restId, name }) => {
   const [opentimes, setOpentimes] = useState([]);
   const [restInfo, setRestInfo] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -52,7 +50,7 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, name }) => {
 
   const fetchOpentimes = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/opentime/${id}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/opentime/${restId}`);
 
       if (!response.ok) {
         throw new Error("Failed to fetch opentimes");
@@ -74,7 +72,7 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, name }) => {
     try {
       const formattedDate = toKoreanDateString(new Date(date)); // 날짜를 KST로 변환
       const response = await fetch(
-        `${process.env.REACT_APP_API_URI}/api/reservations/${id}/times/${formattedDate}`
+        `${process.env.REACT_APP_API_URI}/api/reservations/${restId}/times/${formattedDate}`
 
       );
       if (!response.ok) {
@@ -108,7 +106,7 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, name }) => {
   const fetchRestInfo = async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URI}/api/restaurants/info/res/${id}`
+        `${process.env.REACT_APP_API_URI}/api/restaurants/info/res/${restId}`
 
       );
       if (!response.ok) {
@@ -166,7 +164,7 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, name }) => {
       await axios.post(`${process.env.REACT_APP_API_URI}/api/vacant`, {
 
         userId: userId,
-        restId: id,
+        restId: restId,
         date: toKoreanDateString(selectedDate),
         time: selectedTime,
         people: selectedGuests,
