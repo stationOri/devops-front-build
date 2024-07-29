@@ -65,6 +65,8 @@ function AccountInfo({ restId }) {
   const handleSubmit = async () => {
     try {
       const formData = new FormData();
+      
+      // 파일 선택 여부 체크
       if (ref.current) {
         await ref.current.upload();
         const file = await ref.current.getFile();
@@ -72,11 +74,11 @@ function AccountInfo({ restId }) {
           formData.append('file', file);
         }
       }
-
+      
       formData.append('restAddress', `${inputAddressValue} ${inputDetailAddressValue}`);
       formData.append('restIntro', inputDescription);
       formData.append('restPhone', inputPhoneNumber);
-
+  
       await axios.put(`${process.env.REACT_APP_API_URI}/api/restaurants/info/setting/${restId}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -88,6 +90,7 @@ function AccountInfo({ restId }) {
       console.error("Error submitting settings:", error);
     }
   };
+  
 
   return (
     <div className="forAccinfoAlign">
