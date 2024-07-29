@@ -110,7 +110,9 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
 
   const fetchOpentimes = async () => {
     try {
-      const response = await fetch(`https://waitmate.shop/api/opentime/${restId}`);
+      const response = await fetch(
+        `https://waitmate.shop/api/opentime/${restId}`
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch opentimes");
       }
@@ -210,7 +212,7 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
             <div className="rest-name">{restaurant.restName}</div>
             <div className="rest-btn-box">
               <div className="empty-btn" onClick={openModal}>
-                <img className="empty-img" src={emptyImg} alt=""/>
+                <img className="empty-img" src={emptyImg} alt="" />
                 <div>빈자리 알림 요청</div>
               </div>
               <div className="ask-btn" onClick={openReceiverModal}>
@@ -291,23 +293,27 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
             </div>
             <div className="rest-location-wrap">
               <div className="rest-info-wrap">
-                <img className="rest-info-img" src={locationImg} alt=""/>
+                <img className="rest-info-img" src={locationImg} alt="" />
                 <p className="rest-info-content">{restaurant.restAddress}</p>
               </div>
               <div className="rest-info-wrap-2">
-                <img className="rest-info-img" src={opentimeImg} alt=""/>
+                <img className="rest-info-img" src={opentimeImg} alt="" />
                 <div>
                   {opentimes.map((opentime) => (
                     <div key={opentime.id} className="rest-info-content">
                       {opentime.restDay} : {opentime.restOpen} ~{" "}
                       {opentime.restClose} / 브레이크타임 :{" "}
-                      {opentime.restBreakstart} ~ {opentime.restBreakend}
+                      {opentime.restBreakstart || opentime.restBreakend
+                        ? `${opentime.restBreakstart || "없음"} ~ ${
+                            opentime.restBreakend || "없음"
+                          }`
+                        : "없음"}
                     </div>
                   ))}
                 </div>
               </div>
               <div className="rest-info-wrap">
-                <img className="rest-info-img" src={phoneImg} alt=""/>
+                <img className="rest-info-img" src={phoneImg} alt="" />
                 <p className="rest-info-content">{restaurant.restPhone}</p>
               </div>
             </div>
@@ -321,14 +327,19 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
               onClick={() => paginate(currentPage - 1)}
               disabled={currentPage === 1}
             >
-              <img className="review-pagination-img" src={leftImg} alt=""/>
+              <img className="review-pagination-img" src={leftImg} alt="" />
             </div>
             <div className="rest-review-container">
               {currentReviews.length === 0 ? (
                 <div className="rest-no-review">리뷰가 없습니다</div>
               ) : (
                 currentReviews.map((review) => (
-                  <ReviewCard key={review.id} review={review} userId={userId} restId={restId}/>
+                  <ReviewCard
+                    key={review.id}
+                    review={review}
+                    userId={userId}
+                    restId={restId}
+                  />
                 ))
               )}
             </div>
@@ -339,7 +350,7 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
                 currentPage === Math.ceil(reviews.length / reviewsPerPage)
               }
             >
-              <img className="review-pagination-img" src={rightImg} alt=""/>
+              <img className="review-pagination-img" src={rightImg} alt="" />
             </div>
           </div>
         </div>
