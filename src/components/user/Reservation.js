@@ -3,7 +3,7 @@ import "../../css/pages/Reservation.css";
 import Loading from "../../components/Loading";
 import RestaurantLocationMap from "../../components/RestaurantLocationMap";
 import DatePicker from "react-datepicker";
-import { subDays } from 'date-fns';
+import { subDays } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import locationImg from "../../assets/images/detail/location.png";
@@ -13,7 +13,7 @@ import noteImg from "../../assets/images/detail/note.png";
 import calImg from "../../assets/images/modal/cal.png";
 import pplImg from "../../assets/images/modal/people.png";
 
-const Reservation = ({ userId, restId, setSelectedMenu}) => {
+const Reservation = ({ userId, restId, setSelectedMenu }) => {
   const [loading, setLoading] = useState(true);
   const [restaurant, setRestaurant] = useState(null);
   const [opentimes, setOpentimes] = useState([]);
@@ -62,8 +62,8 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
   }, [restId]);
 
   const handlesuccess = () => {
-    setSelectedMenu("마이페이지")
-  }
+    setSelectedMenu("마이페이지");
+  };
 
   useEffect(() => {
     if (menus.length > 0) {
@@ -94,7 +94,9 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
 
   const fetchOpentimes = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/opentime/${restId}`);
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URI}/api/opentime/${restId}`
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch opentimes");
       }
@@ -183,7 +185,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
       console.error(error);
     }
   };
-  
+
   const fetchPeak = async () => {
     try {
       const response = await fetch(
@@ -311,102 +313,109 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
     }
   };
 
-  const PaymentRequest = (amount, userId, reservationReqDto, setSelectedMenu) => {
-  const { IMP } = window;
-  IMP.init("imp50204728"); // 가맹점 번호 지정
-  IMP.request_pay(
-    {
-      pg: "tosspayments",
-      pay_method: "card",
-      merchant_uid: `mid_${new Date().getTime()}_${userId}`,
-      name: "waitmate 예약금",
-      amount: amount,
-      buyer_name: userId,
-    },
-    async (response) => {
-      if (response.error_code != null) {
-        return alert(
-          `결제에 실패하였습니다. 에러 내용: ${response.error_msg}`
-        );
-      } else {
-        try {
-          const notified = await axios.post(
-            `${process.env.REACT_APP_API_URI}/api/payment/validation`,
-            {
-              imp_uid: response.imp_uid,
-              merchant_uid: response.merchant_uid,
-              amount: parseInt(amount),
-            },
-            {
-              headers: { "Content-Type": "application/json" },
-            }
+  const PaymentRequest = (
+    amount,
+    userId,
+    reservationReqDto,
+    setSelectedMenu
+  ) => {
+    const { IMP } = window;
+    IMP.init("imp50204728"); // 가맹점 번호 지정
+    IMP.request_pay(
+      {
+        pg: "tosspayments",
+        pay_method: "card",
+        merchant_uid: `mid_${new Date().getTime()}_${userId}`,
+        name: "waitmate 예약금",
+        amount: amount,
+        buyer_name: userId,
+      },
+      async (response) => {
+        if (response.error_code != null) {
+          return alert(
+            `결제에 실패하였습니다. 에러 내용: ${response.error_msg}`
           );
-          if (notified) {
-            console.log("결제 verification 성공");
-            const payDto = {
-              imp_uid: response.imp_uid,
-              merchant_uid: response.merchant_uid,
-              amount: parseInt(amount),
-            };
-            const combinedDto = {
-              reservationReqDto: reservationReqDto,
-              payDto: payDto,
-            };
-            try {
-              const reservationResponse = await axios.post(
-                `${process.env.REACT_APP_API_URI}/api/reservations/reservation`,
-                combinedDto,
-                {
-                  headers: { "Content-Type": "application/json" },
-                }
-              );
-              if (reservationResponse.data === "success") {
-                alert("예약 성공!");
-                handlesuccess();
-              } else {
-                alert(reservationResponse.data);
+        } else {
+          try {
+            const notified = await axios.post(
+              `${process.env.REACT_APP_API_URI}/api/payment/validation`,
+              {
+                imp_uid: response.imp_uid,
+                merchant_uid: response.merchant_uid,
+                amount: parseInt(amount),
+              },
+              {
+                headers: { "Content-Type": "application/json" },
               }
-            } catch (error) {
-              console.error("Error making reservation:", error);
+            );
+            if (notified) {
+              console.log("결제 verification 성공");
+              const payDto = {
+                imp_uid: response.imp_uid,
+                merchant_uid: response.merchant_uid,
+                amount: parseInt(amount),
+              };
+              const combinedDto = {
+                reservationReqDto: reservationReqDto,
+                payDto: payDto,
+              };
+              try {
+                const reservationResponse = await axios.post(
+                  `${process.env.REACT_APP_API_URI}/api/reservations/reservation`,
+                  combinedDto,
+                  {
+                    headers: { "Content-Type": "application/json" },
+                  }
+                );
+                if (reservationResponse.data === "success") {
+                  alert("예약 성공!");
+                  handlesuccess();
+                } else {
+                  alert(reservationResponse.data);
+                }
+              } catch (error) {
+                console.error("Error making reservation:", error);
+              }
+            } else {
+              alert("결제 실패");
+              console.log("결제 verification 실패");
             }
-          } else {
-            alert("결제 실패");
-            console.log("결제 verification 실패");
+          } catch (error) {
+            alert("결제 화면 호출 실패");
+            console.error("api 호출 실패:", error);
           }
-        } catch (error) {
-          alert("결제 화면 호출 실패");
-          console.error("api 호출 실패:", error);
         }
       }
-    }
-  );
-};
+    );
+  };
 
-const getExcludeDateIntervals = (holiday, peak) => {
-  const now = new Date();
+  const getExcludeDateIntervals = (holiday, peak) => {
+    const now = new Date();
 
-  return [
-    ...holiday?.map((exclude) => ({
-      start: subDays(new Date(exclude.startDate), 1),
-      end: new Date(exclude.endDate),
-    })),
-    ...peak?.map((exclude) => {
-      const peakOpenDate = new Date(exclude.peakOpendate);
-      console.log("now: ", now);
-      console.log("peakOpenDate: ", peakOpenDate);
-      if (now < peakOpenDate) {
-        return {
-          start: subDays(new Date(exclude.dateStart), 1),
-          end: new Date(exclude.dateEnd),
-        };
-      } else {
-        return null;
-      }
-    }).filter(Boolean), 
-  ];
-};
+    return [
+      ...holiday?.map((exclude) => ({
+        start: subDays(new Date(exclude.startDate), 1),
+        end: new Date(exclude.endDate),
+      })),
+      ...peak
+        ?.map((exclude) => {
+          const peakOpenDate = new Date(exclude.peakOpendate);
+          console.log("now: ", now);
+          console.log("peakOpenDate: ", peakOpenDate);
+          if (now < peakOpenDate) {
+            return {
+              start: subDays(new Date(exclude.dateStart), 1),
+              end: new Date(exclude.dateEnd),
+            };
+          } else {
+            return null;
+          }
+        })
+        .filter(Boolean),
+    ];
+  };
 
-const excludeDateIntervals = getExcludeDateIntervals(holiday, peak);
+  const excludeDateIntervals = getExcludeDateIntervals(holiday, peak);
 
   return (
     <div className="reservation">
@@ -448,13 +457,14 @@ const excludeDateIntervals = getExcludeDateIntervals(holiday, peak);
                   />
                   <div>
                     {opentimes.map((opentime) => (
-                      <div
-                        key={opentime.restaurantOpenId}
-                        className="rest-info-content"
-                      >
+                      <div key={opentime.id} className="rest-info-content">
                         {opentime.restDay} : {opentime.restOpen} ~{" "}
-                        {opentime.restClose}/ 브레이크타임 :{" "}
-                        {opentime.restBreakstart} ~ {opentime.restBreakend}
+                        {opentime.restClose} / 브레이크타임 :{" "}
+                        {opentime.restBreakstart || opentime.restBreakend
+                          ? `${opentime.restBreakstart || "없음"} ~ ${
+                              opentime.restBreakend || "없음"
+                            }`
+                          : "없음"}
                       </div>
                     ))}
                   </div>
@@ -622,9 +632,7 @@ const excludeDateIntervals = getExcludeDateIntervals(holiday, peak);
                 {restInfo
                   ? restInfo.restDepositMethod === "A"
                     ? `${restInfo.restDeposit * selectedGuests} 원`
-                    : `${
-                        Math.floor((calculateTotalPrice() * 0.2))
-                      } 원`
+                    : `${Math.floor(calculateTotalPrice() * 0.2)} 원`
                   : "0원"}
               </div>
               <div className="res-refund-rule">
