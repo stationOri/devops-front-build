@@ -90,12 +90,12 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, restId, name }) => {
         return;
       }
 
-      // const times = Object.keys(data.availabilityMap[formattedDate]);
-      // const timeStates = Object.values(data.availabilityMap[formattedDate]);
+      const times = Object.keys(data.availabilityMap[formattedDate]);
+      const timeStates = Object.values(data.availabilityMap[formattedDate]);
 
-      // times.forEach((time, index) => {
-      //   console.log(`시간: ${time}, 상태: ${timeStates[index]}`);
-      // });
+      times.forEach((time, index) => {
+        console.log(`시간: ${time}, 상태: ${timeStates[index]}`);
+      });
 
       setAvailableTimes(data.availabilityMap[formattedDate]);
     } catch (error) {
