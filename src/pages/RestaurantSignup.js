@@ -91,7 +91,7 @@ function RestaurantSignin() {
       <div className="restSigninWrapper">
         <div className="signinHeader">
           <img className="ori" src={Oriblue} alt="duck" />
-          <div className="headertext">기업 회원가입</div>
+          <div className="headertext">식당 회원가입</div>
           <div className="headerexplain">식당 정보 및 업체 정보를 입력해주시기 바랍니다.</div>
         </div>
         <div className="signinContent">
@@ -182,7 +182,7 @@ function RestaurantSignin() {
         </div>
         <div className="signinFooter">
           <button className="signinSubmitBtn" onClick={handleSignup}>
-            기업 회원가입
+            식당 회원가입
           </button>
         </div>
       </div>
