@@ -40,6 +40,7 @@ const Mypage = ({ userId, onCardClick }) => {
   const [favoritesCurrentPage, setFavoritesCurrentPage] = useState(1);
   const [editSuccess, setEditSuccess] = useState(false);
   const [selectedRestId, setSelectedRestId] = useState(null);
+  const [selectedReservation, setSelectedReservation] = useState([]);
   const [refreshKey, setRefreshKey] = useState(0);
   const { openInputModal } = useInputModal();
   const reservationsPerPage = 3;
@@ -229,7 +230,13 @@ const Mypage = ({ userId, onCardClick }) => {
       reservation.resStatus === "RESERVATION_ACCEPTED"
     ) {
       return (
-        <button className="my-res-info-res-btn" onClick={UserCancelShow}>
+        <button
+          className="my-res-info-res-btn"
+          onClick={() => {
+            setSelectedReservation(reservation);
+            UserCancelShow();
+          }}
+        >
           예약 취소
         </button>
       );
@@ -452,24 +459,17 @@ const Mypage = ({ userId, onCardClick }) => {
                         {reservation.resStatus}
                       </div>
                       <div className="my-res-info-img-wrap">
-                        <img src={calImg} className="my-res-Img" />
+                        <img src={calImg} className="my-res-Img" alt="" />
                         <div>{formatTimestamp(reservation.resDatetime)}</div>
                       </div>
                       <div className="my-res-info-img-wrap">
-                        <img src={peopleImg} className="my-res-Img" />
+                        <img src={peopleImg} className="my-res-Img" alt="" />
                         <div>{reservation.resNum}명</div>
                       </div>
                     </div>
                     <div className="my-res-refund-review">
                       <div className="my-res-refund-box">
                         {renderReservationAction(reservation)}
-                        {usercancelshow && (
-                          <UserResCancelModal
-                            usercancelshow={usercancelshow}
-                            UserCancelClose={UserCancelClose}
-                            reservation={reservation}
-                          />
-                        )}
                       </div>
                       <div
                         className="my-res-info-rest-report"
@@ -533,13 +533,17 @@ const Mypage = ({ userId, onCardClick }) => {
                 </div>
               </div>
               <div className="al-c my-waiting-info-text">
-                <img src={alarmImg} className="profile-Img" />
+                <img src={alarmImg} className="profile-Img" alt="" />
                 <div>
                   {waiting.waitingStatus === "QUEUE_CANCELED" ? (
                     <div>대기를 취소했습니다.</div>
                   ) : waiting.waitingStatus === "NOSHOW" ? (
                     <div>입장을 하지 않았습니다.</div>
-                  ) : waiting.waitingLeft !== 0 && waiting.waitingStatus === "WALKIN_REQUESTED"? (
+                  ) : waiting.waitingStatus === "WALKIN_REQUESTED" ? (
+                    <div>지금 입장하세요!</div>
+                  ) : waiting.waitingStatus === "WALKIN" ? (
+                    <div>입장 완료</div>
+                  ) : (
                     <div>
                       현재 예상 대기시간은{" "}
                       <span className="fs-20">
@@ -547,8 +551,6 @@ const Mypage = ({ userId, onCardClick }) => {
                       </span>{" "}
                       입니다.
                     </div>
-                  ) : (
-                    <div>지금 입장하세요!</div>
                   )}
                 </div>
               </div>
@@ -711,6 +713,13 @@ const Mypage = ({ userId, onCardClick }) => {
         onReviewSuccess={handleReviewSuccess}
       />
       <InputModal />
+      {usercancelshow && (
+        <UserResCancelModal
+          usercancelshow={usercancelshow}
+          UserCancelClose={UserCancelClose}
+          reservation={selectedReservation}
+        />
+      )}
     </div>
   );
 };

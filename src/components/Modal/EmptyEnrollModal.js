@@ -177,7 +177,7 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, restId, name }) => {
 
     openSuccessModal(
       "빈자리 알림 요청 완료",
-      "예약자 이름",
+      name,
       toKoreanDateString(selectedDate),
       selectedTime,
       selectedGuests,

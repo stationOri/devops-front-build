@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Pagination from "../Pagination";
 import Search from "../../assets/images/sidebar/search.png";
 import "../../css/components/adminn/RestBlacklist.css";
+import axios from "axios";
 
 function UserBlacklist() {
   const [readyRest, setReadyRest] = useState([]);
@@ -17,8 +18,9 @@ function UserBlacklist() {
   });
 
   const getRestData = async () => {
+    console.log("start black user")
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URI}/black/user`);
+      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/black/user`);
 
       if (!response.ok) {
         throw new Error("Failed to fetch");

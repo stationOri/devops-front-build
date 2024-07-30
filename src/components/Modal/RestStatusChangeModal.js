@@ -3,17 +3,17 @@ import "../../css/components/Modal/CheckModal.css";
 import "../../css/components/Modal/CancelModal.css";
 import "../../css/components/Modal/RevAcceptModal.css";
 import Logo from "../../assets/images/oriblue.png";
-import axios from 'axios';
+import axios from "axios";
 
 function RestStatusChangeModal({
   RevDetailClose,
   revdetailshow,
   reservation,
   RestChangeShow,
-  RestCancelShow
+  RestCancelShow,
 }) {
   const handlenavigate = () => {
-    console.log(reservation)
+    console.log(reservation);
     const today = new Date().toISOString().split("T")[0];
     const reservationDate = reservation.resDate.split(" ")[0];
 
@@ -27,27 +27,32 @@ function RestStatusChangeModal({
   };
 
   const handleCancel = async () => {
-      try{
-        const response = await  axios.put(`${process.env.REACT_APP_API_URI}/api/reservations/status/${reservation.resId}`, {
-          status: "RESERVATION_CANCELED_BYㄲㄸㄴㅆ",
-        }, {
-          headers: { "Content-Type": "application/json" }
-        });
-        if (response.data==='success') {
-            alert('예약 거절 및 알림 완료, 상태 반영을 원한다면 날짜 선택 및 조회를 다시 해주세요.')
-          } else {
-            alert(response.data);
-          }
-        } catch (error) {
-          console.error('Error updating reservation status:', error);
-          alert('An error occurred while updating reservation status.')
+    try {
+      const response = await axios.put(
+        `${process.env.REACT_APP_API_URI}/api/reservations/status/${reservation.resId}`,
+        {
+          status: "RESERVATION_CANCELED_BYREST",
+        },
+        {
+          headers: { "Content-Type": "application/json" },
         }
-        RevDetailClose();
-    
+      );
+      if (response.data === "success") {
+        alert(
+          "예약 거절 및 알림 완료, 상태 반영을 원한다면 날짜 선택 및 조회를 다시 해주세요."
+        );
+      } else {
+        alert(response.data);
+      }
+    } catch (error) {
+      console.error("Error updating reservation status:", error);
+      alert("An error occurred while updating reservation status.");
+    }
+    RevDetailClose();
   };
 
   const handleno = () => {
-    handleCancel()
+    handleCancel();
   };
 
   return (
