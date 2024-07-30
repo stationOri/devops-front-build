@@ -543,8 +543,11 @@ const Mypage = ({ userId, onCardClick }) => {
                   }`}
                   disabled={`${
                     (waiting.waitingStatus === "QUEUE_CANCELED" ||
-                    waiting.waitingStatus === "NOSHOW"
-                   ) && "disabled"
+                    waiting.waitingStatus === "NOSHOW" ||
+                    waiting.waitingStatus === "WAKWALKIN_REQUESTED" ||
+                    waiting.waitingStatus === "WALKIN" ||
+                    waiting.waitingStatus === "QUEUE_CANCELED"
+                ) && "disabled"
                   }`}
                   onClick={
                     waiting.waitingStatus === "QUEUE_CANCELED" ||
