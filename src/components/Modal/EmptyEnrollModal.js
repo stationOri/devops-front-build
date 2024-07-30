@@ -72,7 +72,7 @@ const EmptyEnrollModal = ({ isOpen, onClose, userId, restId, name }) => {
     try {
       const formattedDate = toKoreanDateString(new Date(date)); // 날짜를 KST로 변환
       const response = await fetch(
-        `${process.env.REACT_APP_API_URI}/api/reservations/${restId}/times/${formattedDate}`
+        `${process.env.REACT_APP_API_URI}/api/reservations/${restId}/unavailabletimes/${formattedDate}`
 
       );
       if (!response.ok) {
