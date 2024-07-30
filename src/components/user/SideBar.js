@@ -73,6 +73,7 @@ function SideBar({ onMenuClick, isExtended, toggleSidebar, setUserId,setFlag, fl
     //         }
     //       }
     //   else{
+    console.log(query);
             try {
               const storedToken = localStorage.getItem("token");
               let userinfo=null;
@@ -94,6 +95,10 @@ function SideBar({ onMenuClick, isExtended, toggleSidebar, setUserId,setFlag, fl
               }else{
                 setUsername("Guest");
                 setIsLoggedIn(false);
+              }const signinok = query.get("signin");
+              console.log(signinok);
+              if (signinok === "true") {
+                setSigninshow(true);
               }
             } catch (error) {
               console.error("Invalid token", error);
