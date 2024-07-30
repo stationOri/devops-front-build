@@ -153,7 +153,7 @@ const Mypage = ({ userId, onCardClick }) => {
   const fetchFavorites = async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URI}/api/favorite/${userId}/rest`
+        `${process.env.REACT_APP_API_URI}/api/favorite/${userId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch favorites");
