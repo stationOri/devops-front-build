@@ -12,7 +12,7 @@ function RestCancelModal({ RestCancelClose, restcancelshow, reservation }) {
     if (selectedReason) {
       try{
         const response = await  axios.put(`${process.env.REACT_APP_API_URI}/api/reservations/status/${reservation.resId}`, {
-          status: "RESERVATION_REJECTED",
+          status: "RESERVATION_CANCELED_BYREST",
           reason: selectedReason
         }, {
           headers: { "Content-Type": "application/json" }
