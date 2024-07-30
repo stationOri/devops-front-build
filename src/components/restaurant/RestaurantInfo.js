@@ -81,9 +81,11 @@ const handelIsopen = async () => {
 
     if(response.data === true) {
       alert("영업이 시작되었습니다.")
+      console.log(response.data);
     }
     if(response.data === false) {
       alert("영업이 종료되었습니다.")
+      console.log(response.data);
     }
 
     setIsOpenContent(response.data);
@@ -117,16 +119,14 @@ const handelIsopen = async () => {
 
   const fetchIsopen = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/restaurants/info/isopen/${restId}`);
-      if (!response.ok) {
-        throw new Error("Failed to fetch isopen status");
-      }
-      setIsOpenContent(response.data)
+      const response = await axios.get(`${process.env.REACT_APP_API_URI}/api/restaurants/info/isopen/${restId}`);
+      console.log(response.data);
+      setIsOpenContent(response.data);
     } catch (error) {
       console.error(error);
       setError(error.message);
     }
-  }
+  };
 
   const fetchRestaurant = async () => {
     try {

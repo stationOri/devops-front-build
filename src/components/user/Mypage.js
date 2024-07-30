@@ -70,7 +70,9 @@ const Mypage = ({ userId, onCardClick }) => {
 
   const fetchUser = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URI}/api/user/${userId}`);
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URI}/api/user/${userId}`
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch user");
       }
@@ -222,10 +224,16 @@ const Mypage = ({ userId, onCardClick }) => {
           리뷰
         </button>
       );
-    }else if(reservation.resStatus==="RESERVATION_READY"||reservation.resStatus==="RESERVATION_ACCEPTED"){
-      return <button className="my-res-info-res-btn" onClick={UserCancelShow}>예약 취소</button>;
-    } 
-
+    } else if (
+      reservation.resStatus === "RESERVATION_READY" ||
+      reservation.resStatus === "RESERVATION_ACCEPTED"
+    ) {
+      return (
+        <button className="my-res-info-res-btn" onClick={UserCancelShow}>
+          예약 취소
+        </button>
+      );
+    }
   };
 
   const getStatusMessage = (status) => {
@@ -356,21 +364,25 @@ const Mypage = ({ userId, onCardClick }) => {
   };
 
   const handleReviewSuccess = () => {
-    setRefreshKey(prevKey => prevKey + 1);
+    setRefreshKey((prevKey) => prevKey + 1);
   };
-  
+
   const handleRestReportClick = (restId, userId) => {
     openInputModal({
       show: true,
       header: "식당 신고",
       user_id: userId,
-      rest_id: restId
+      rest_id: restId,
     });
   };
 
-  const handleResCancel = (resId)=>{
+  const handleResCancel = (resId) => {};
 
-  }
+  const isDisabled =
+    waiting.waitingStatus === "QUEUE_CANCELED" ||
+    waiting.waitingStatus === "NOSHOW" ||
+    waiting.waitingStatus === "WALKIN_REQUESTED" ||
+    waiting.waitingStatus === "WALKIN";
 
   return (
     <div className="my-container">
@@ -385,11 +397,11 @@ const Mypage = ({ userId, onCardClick }) => {
             <div className="my-info-item">
               <div className="my-info-item-title">{user?.userNickname}</div>
               <div className="my-info-item-content-box">
-                <img src={phoneImg} className="user-info-Img" alt=""/>
+                <img src={phoneImg} className="user-info-Img" alt="" />
                 <div className="my-info-item-content">{user?.userPhone}</div>
               </div>
               <div className="my-info-item-content-box">
-                <img src={mailImg} className="user-info-Img" alt=""/>
+                <img src={mailImg} className="user-info-Img" alt="" />
                 <div className="my-info-item-content">{user?.userEmail}</div>
               </div>
               <div className="my-info-item-content-box">
@@ -451,15 +463,22 @@ const Mypage = ({ userId, onCardClick }) => {
                     <div className="my-res-refund-review">
                       <div className="my-res-refund-box">
                         {renderReservationAction(reservation)}
-                          {usercancelshow && (
-                            <UserResCancelModal
+                        {usercancelshow && (
+                          <UserResCancelModal
                             usercancelshow={usercancelshow}
                             UserCancelClose={UserCancelClose}
-                              reservation={reservation}
-                            />
-                          )}
+                            reservation={reservation}
+                          />
+                        )}
                       </div>
-                      <div className="my-res-info-rest-report"  onClick={() => handleRestReportClick(reservation.restId, userId)}>식당 신고</div>
+                      <div
+                        className="my-res-info-rest-report"
+                        onClick={() =>
+                          handleRestReportClick(reservation.restId, userId)
+                        }
+                      >
+                        식당 신고
+                      </div>
                       <div className="my-res-info-res-id">
                         reservation id: {reservation.resId}
                       </div>
@@ -520,7 +539,7 @@ const Mypage = ({ userId, onCardClick }) => {
                     <div>대기를 취소했습니다.</div>
                   ) : waiting.waitingStatus === "NOSHOW" ? (
                     <div>입장을 하지 않았습니다.</div>
-                  ) : waiting.waitingLeft !== 0 ? (
+                  ) : waiting.waitingLeft !== 0 && waiting.waitingStatus === "WALKIN_REQUESTED"? (
                     <div>
                       현재 예상 대기시간은{" "}
                       <span className="fs-20">
@@ -536,25 +555,9 @@ const Mypage = ({ userId, onCardClick }) => {
               <div className="my-waiting-info-btn-box">
                 <div
                   className={`my-waiting-info-btn ${
-                    waiting.waitingStatus === "QUEUE_CANCELED" ||
-                    waiting.waitingStatus === "NOSHOW"
-                      ? "disabled"
-                      : ""
+                    isDisabled ? "disabled" : ""
                   }`}
-                  disabled={`${
-                    (waiting.waitingStatus === "QUEUE_CANCELED" ||
-                    waiting.waitingStatus === "NOSHOW" ||
-                    waiting.waitingStatus === "WAKWALKIN_REQUESTED" ||
-                    waiting.waitingStatus === "WALKIN" ||
-                    waiting.waitingStatus === "QUEUE_CANCELED"
-                ) && "disabled"
-                  }`}
-                  onClick={
-                    waiting.waitingStatus === "QUEUE_CANCELED" ||
-                    waiting.waitingStatus === "NOSHOW"
-                      ? null
-                      : handleCancel
-                  }
+                  onClick={isDisabled ? null : handleCancel}
                 >
                   <div>취소</div>
                 </div>
@@ -644,7 +647,11 @@ const Mypage = ({ userId, onCardClick }) => {
                 reviewCurrentPage * reviewPerPage
               )
               .map((review) => (
-                <MyReviewCard key={review.reviewId} review={review} userId={userId}/>
+                <MyReviewCard
+                  key={review.reviewId}
+                  review={review}
+                  userId={userId}
+                />
               ))}
             <Pagination
               totalItems={reviews.length}
@@ -703,8 +710,7 @@ const Mypage = ({ userId, onCardClick }) => {
         restId={selectedRestId}
         onReviewSuccess={handleReviewSuccess}
       />
-      <InputModal/>
-      
+      <InputModal />
     </div>
   );
 };
