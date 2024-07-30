@@ -222,9 +222,10 @@ const Mypage = ({ userId, onCardClick }) => {
           리뷰
         </button>
       );
-    } else {
+    }else if(reservation.resStatus==="RESERVATION_READY"||reservation.resStatus==="RESERVATION_ACCEPTED"){
       return <button className="my-res-info-res-btn" onClick={UserCancelShow}>예약 취소</button>;
-    }
+    } 
+
   };
 
   const getStatusMessage = (status) => {
