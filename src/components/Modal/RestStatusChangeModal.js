@@ -3,6 +3,7 @@ import "../../css/components/Modal/CheckModal.css";
 import "../../css/components/Modal/CancelModal.css";
 import "../../css/components/Modal/RevAcceptModal.css";
 import Logo from "../../assets/images/oriblue.png";
+import axios from 'axios';
 
 function RestStatusChangeModal({
   RevDetailClose,
@@ -25,9 +26,29 @@ function RestStatusChangeModal({
     RestChangeShow(reservation);
   };
 
+  const handleCancel = async () => {
+      try{
+        const response = await  axios.put(`${process.env.REACT_APP_API_URI}/api/reservations/status/${reservation.resId}`, {
+          status: "RESERVATION_CANCELED_BYUSER",
+        }, {
+          headers: { "Content-Type": "application/json" }
+        });
+        if (response.data==='success') {
+            alert('예약 거절 및 알림 완료, 상태 반영을 원한다면 날짜 선택 및 조회를 다시 해주세요.')
+          } else {
+            alert(response.data);
+          }
+        } catch (error) {
+          console.error('Error updating reservation status:', error);
+          alert('An error occurred while updating reservation status.')
+        }
+        alert("취소 완료")
+        RevDetailClose();
+    
+  };
+
   const handleno = () => {
-    RevDetailClose();
-    RestCancelShow(reservation);
+    handleCancel()
   };
 
   return (
