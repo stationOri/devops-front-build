@@ -88,7 +88,12 @@ const WaitingEnrollModal = ({ isOpen, onClose, userId, restId, name }) => {
       console.log("POST 요청 성공", response.data);
       if (response.data === -1) {
         alert("현재 웨이팅이 불가능합니다.");
-      } else {
+        onClose()
+      } else if (response.data === 0) {
+        alert("현재 식당은 웨이팅을 받고있지 않습니다.")
+        onClose()
+      }
+      else {
         setSuccessData(response.data);
         setIsSuccessModalOpen(true);
       }

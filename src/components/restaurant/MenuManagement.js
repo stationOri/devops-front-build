@@ -3,6 +3,7 @@ import Loading from "../Loading";
 import "../../css/components/restaurant/MenuManagement.css";
 import { useMenuModal } from "../Modal/MenuModalContext";
 import MenuModal from "../Modal/Menu";
+import axios from 'axios';
 
 function MenuManagement({ restId }) {
   const [restmenu, setRestMenu] = useState([]);
@@ -36,22 +37,19 @@ function MenuManagement({ restId }) {
     }
   };
 
-  const handleMenuDelete = async (menuId) => {
-    if (window.confirm("정말로 이 메뉴를 삭제하시겠습니까?")) {
-      try {
-        const response = await fetch(`${process.env.REACT_APP_API_URI}/api/restaurants/menu/${menuId}`, {
-          method: 'DELETE',
-        });
-        if (!response.ok) {
-          throw new Error("Failed to delete menu");
-        }
-        fetchMenus();
-      } catch (error) {
-        console.error("Error deleting menu:", error);
-        setError(error);
-      }
+
+const handleMenuDelete = async (menuId) => {
+  if (window.confirm("정말로 이 메뉴를 삭제하시겠습니까?")) {
+    try {
+      await axios.delete(`${process.env.REACT_APP_API_URI}/api/restaurants/menu/${menuId}`);
+      fetchMenus();
+    } catch (error) {
+      console.error("Error deleting menu:", error);
+      setError(error.message); // Update error state with error message
     }
-  };
+  }
+};
+
 
   const filteredMenus = restmenu.filter((menu) => menu.restId === restId);
 

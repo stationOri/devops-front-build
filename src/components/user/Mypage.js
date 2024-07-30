@@ -541,6 +541,11 @@ const Mypage = ({ userId, onCardClick }) => {
                       ? "disabled"
                       : ""
                   }`}
+                  disabled={`${
+                    (waiting.waitingStatus === "QUEUE_CANCELED" ||
+                    waiting.waitingStatus === "NOSHOW"
+                   ) && "disabled"
+                  }`}
                   onClick={
                     waiting.waitingStatus === "QUEUE_CANCELED" ||
                     waiting.waitingStatus === "NOSHOW"

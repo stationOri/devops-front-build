@@ -27,7 +27,6 @@ const ReviewCard = ({ review, userId, restId }) => {
 
   const handleLikes = async () => {
     if (loggedin) {
-      console.log(review)
       try {
         if (liked) {
           console.log(liked, likeNum)
