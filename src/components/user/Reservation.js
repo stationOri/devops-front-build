@@ -3,6 +3,7 @@ import "../../css/pages/Reservation.css";
 import Loading from "../../components/Loading";
 import RestaurantLocationMap from "../../components/RestaurantLocationMap";
 import DatePicker from "react-datepicker";
+import { subDays } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import locationImg from "../../assets/images/detail/location.png";
@@ -25,6 +26,8 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
   const [menuQuantities, setMenuQuantities] = useState({});
   const [checkBoxChecked, setCheckBoxChecked] = useState(false);
   const [reqText, setReqText] = useState("");
+  const [peak, setPeak] = useState([]);
+  const [holiday, setHoliday] = useState([]);
 
   const convertDayToKorean = (day) => {
     switch (day) {
@@ -54,6 +57,8 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
     fetchOpentimes();
     fetchRestInfo();
     fetchMenus();
+    fetchHoliday();
+    fetchPeak();
   }, [restId]);
 
   const handlesuccess = () => {
@@ -163,6 +168,38 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
     }
   };
 
+  const fetchHoliday = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URI}/api/restaurants/rest-temp-holiday/${restId}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch holiday");
+      }
+      const data = await response.json();
+      console.log("holiday: ", data);
+      setHoliday(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+  const fetchPeak = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URI}/api/restaurants/peak/${restId}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch peak");
+      }
+      const data = await response.json();
+      setPeak(data);
+      console.log("peak: ", data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleDateChange = (date) => {
     setSelectedDate(date);
     fetchAvailableTimes(date);
@@ -229,27 +266,6 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
     ).padStart(2, "0")}-${String(koreanDate.getDate()).padStart(2, "0")}`;
   }
 
-  // const handleEnrollReservation = () => {
-  //   console.log("예약 완료");
-  //   console.log(new Date().toISOString().split("T")[0]); // 예약 신청일
-  //   console.log(toKoreanDateString(selectedDate)); // 예약 날짜
-  //   console.log(selectedTime); // 예약 시간
-  //   console.log(selectedGuests); // 예약 인원
-  //   menus.forEach((menu) => {
-  //     if (menuQuantities[menu.menuId] > 0) {
-  //       console.log(`${menu.menuName}`); // 선택한 메뉴
-  //       console.log(`${menuQuantities[menu.menuId]}`); // 수량
-  //     }
-  //   });
-  //   console.log(reqText); // 요청사항 출력
-  //   let depositAmount;
-  //   if (restInfo && restInfo.restDepositMethod === "A") {
-  //     depositAmount = restInfo.restDeposit * selectedGuests;
-  //   } else {
-  //     depositAmount = calculateTotalPrice() * 0.2;
-  //   }
-  //   console.log(depositAmount); // 예약금 출력
-  // };
   const handleEnrollReservation = async (e) => {
     e.preventDefault();
     const menulist = menus
@@ -366,6 +382,32 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
   );
 };
 
+const getExcludeDateIntervals = (holiday, peak) => {
+  const now = new Date();
+
+  return [
+    ...holiday?.map((exclude) => ({
+      start: subDays(new Date(exclude.startDate), 1),
+      end: new Date(exclude.endDate),
+    })),
+    ...peak?.map((exclude) => {
+      const peakOpenDate = new Date(exclude.peakOpendate);
+      console.log("now: ", now);
+      console.log("peakOpenDate: ", peakOpenDate);
+      if (now < peakOpenDate) {
+        return {
+          start: subDays(new Date(exclude.dateStart), 1),
+          end: new Date(exclude.dateEnd),
+        };
+      } else {
+        return null;
+      }
+    }).filter(Boolean), 
+  ];
+};
+
+const excludeDateIntervals = getExcludeDateIntervals(holiday, peak);
+
   return (
     <div className="reservation">
       <div className="res-container">
@@ -443,6 +485,7 @@ const Reservation = ({ userId, restId, setSelectedMenu}) => {
                 className="picker"
                 placeholderText="DATE"
                 dateFormat="yyyy-MM-dd"
+                excludeDateIntervals={excludeDateIntervals}
               />
             </div>
             <div className="res-enroll-ppl">
