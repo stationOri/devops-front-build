@@ -17,7 +17,7 @@ function Reservation({ restId, onMenuClick }) {
     const newDate = new Date(date);
     newDate.setDate(newDate.getDate() + days);
     return newDate;
-  };
+  }; 
   const [loading, setLoading] = useState(true);
   const [rev, setRev] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
