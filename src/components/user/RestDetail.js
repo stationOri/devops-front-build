@@ -35,18 +35,16 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
     if (userId !== 0) {
       setIsModalOpen(true);
     } else {
-      alert("빈자리 알림은 로그인을 하셔야 신청 가능합니다.")
+      alert("빈자리 알림은 로그인을 하셔야 신청 가능합니다.");
     }
-    
   };
 
   const openWaitingModal = () => {
     if (userId !== 0) {
       setIsWaitingModalOpen(true);
     } else {
-      alert("웨이팅 등록은 로그인을 하셔야 가능합니다.")
+      alert("웨이팅 등록은 로그인을 하셔야 가능합니다.");
     }
-    
   };
 
   const openReceiverModal = () => {
@@ -60,12 +58,11 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
   };
 
   const moveFunc = () => {
-    if(userId !== 0) {
+    if (userId !== 0) {
       moveToReservation(restId);
-    }else {
-      alert("예약은 로그인을 해야 가능합니다.")
+    } else {
+      alert("예약은 로그인을 해야 가능합니다.");
     }
-    
   };
 
   const convertDayToKorean = (day) => {
@@ -99,7 +96,7 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
           fetchOpentimes(),
           fetchMenus(),
           fetchReviews(),
-          fetchIsOpen()
+          fetchIsOpen(),
         ]);
       } catch (error) {
         setError(error.message);
@@ -112,8 +109,10 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
 
   const fetchIsOpen = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URI}/api/restaurants/isopen/${restId}`);
-      
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URI}/api/restaurants/isopen/${restId}`
+      );
+
       if (response.status !== 200) {
         throw new Error("Failed to fetch isopen");
       }
@@ -188,7 +187,7 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
         throw new Error("Failed to fetch reviews");
       }
       const data = await response.json();
-      const filteredData = data.filter(review => !review.blind);
+      const filteredData = data.filter((review) => !review.blind);
       setReviews(filteredData);
     } catch (error) {
       console.error("Error fetching reviews:", error);
@@ -244,41 +243,43 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
           <div className="rest-name-box">
             <div className="rest-name">{restaurant.restName}</div>
             <div className="rest-btn-box">
-              { isopen ? 
-              <>
-              <div className="empty-btn" onClick={openModal}>
-              <img className="empty-img" src={emptyImg} alt="" />
-              <div>빈자리 알림 요청</div>
-            </div>
-            <div className="ask-btn" onClick={openReceiverModal}>
-              <div className="btn-content">1:1 문의</div>
-            </div>
-            {restaurant.revWait === "A" && (
-              <div className="res-btn" onClick={openWaitingModal}>
-                <div className="btn-content">웨이팅</div>
-              </div>
-            )}
-            {restaurant.revWait === "B" && (
-              <div className="res-btn" onClick={moveFunc}>
-                <div className="btn-content">예약</div>
-              </div>
-            )}
-            {restaurant.revWait === "C" && (
-              <>
-                <div className="res-btn" onClick={openWaitingModal}>
-                  <div className="btn-content">웨이팅</div>
-                </div>
-                <div className="res-btn" onClick={moveFunc}>
-                  <div className="btn-content">예약</div>
-                </div>
-              </>
-            )}
-            </>
-            :<>
-            <div className="notopenedmsg">식당이 예약 및 웨이팅 기능을 오픈하지 않았습니다.</div>
-            </>
-              }
-              
+              {isopen ? (
+                <>
+                  <div className="empty-btn" onClick={openModal}>
+                    <img className="empty-img" src={emptyImg} alt="" />
+                    <div>빈자리 알림 요청</div>
+                  </div>
+                  <div className="ask-btn" onClick={openReceiverModal}>
+                    <div className="btn-content">1:1 문의</div>
+                  </div>
+                  {restaurant.revWait === "A" && (
+                    <div className="res-btn" onClick={openWaitingModal}>
+                      <div className="btn-content">웨이팅</div>
+                    </div>
+                  )}
+                  {restaurant.revWait === "B" && (
+                    <div className="res-btn" onClick={moveFunc}>
+                      <div className="btn-content">예약</div>
+                    </div>
+                  )}
+                  {restaurant.revWait === "C" && (
+                    <>
+                      <div className="res-btn" onClick={openWaitingModal}>
+                        <div className="btn-content">웨이팅</div>
+                      </div>
+                      <div className="res-btn" onClick={moveFunc}>
+                        <div className="btn-content">예약</div>
+                      </div>
+                    </>
+                  )}
+                </>
+              ) : (
+                <>
+                  <div className="notopenedmsg">
+                    식당이 예약 및 웨이팅 기능을 오픈하지 않았습니다.
+                  </div>
+                </>
+              )}
             </div>
           </div>
           <div></div>
