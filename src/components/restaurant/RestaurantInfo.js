@@ -184,7 +184,8 @@ const handelIsopen = async () => {
         throw new Error("Failed to fetch reviews");
       }
       const data = await response.json();
-      setReviews(data);
+      const filteredData = data.filter(review => !review.blind);
+      setReviews(filteredData);
     } catch (error) {
       console.error(error);
     }
