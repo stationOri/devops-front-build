@@ -29,7 +29,7 @@ function RestStatusChangeModal({
   const handleCancel = async () => {
       try{
         const response = await  axios.put(`${process.env.REACT_APP_API_URI}/api/reservations/status/${reservation.resId}`, {
-          status: "RESERVATION_CANCELED_BYUSER",
+          status: "RESERVATION_CANCELED_BYㄲㄸㄴㅆ",
         }, {
           headers: { "Content-Type": "application/json" }
         });
@@ -42,7 +42,6 @@ function RestStatusChangeModal({
           console.error('Error updating reservation status:', error);
           alert('An error occurred while updating reservation status.')
         }
-        alert("취소 완료")
         RevDetailClose();
     
   };
