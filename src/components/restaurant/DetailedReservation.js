@@ -75,12 +75,16 @@ function DetailedReservation({ reservations, row, restId }) {
         );
       case "RESERVATION_REJECTED":
         return <div>거절됨</div>;
-      case "RESERVATION_CANCELED":
-        return <div>취소됨</div>;
+      case "RESERVATION_CANCELED_BYREST":
+        return <div>식당 취소</div>;
+      case "RESERVATION_CANCELED_BYUSER":
+          return <div>사용자 취소</div>;
       case "VISITED":
         return <div>방문</div>;
       case "NOSHOW":
         return <div>노쇼</div>;
+      case "RESERVATION_CANCELED_BYADMIN":
+        return <div>관리자 취소</div>
       default:
         return <div>오류</div>;
     }
