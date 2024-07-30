@@ -73,6 +73,7 @@ function SideBar({ onMenuClick, isExtended, toggleSidebar, setUserId,setFlag, fl
     //         }
     //       }
     //   else{
+    console.log(query);
             try {
               const storedToken = localStorage.getItem("token");
               let userinfo=null;
@@ -94,6 +95,10 @@ function SideBar({ onMenuClick, isExtended, toggleSidebar, setUserId,setFlag, fl
               }else{
                 setUsername("Guest");
                 setIsLoggedIn(false);
+              }const signinok = query.get("signin");
+              console.log(signinok);
+              if (signinok === "true") {
+                setSigninshow(true);
               }
             } catch (error) {
               console.error("Invalid token", error);
@@ -131,7 +136,7 @@ function SideBar({ onMenuClick, isExtended, toggleSidebar, setUserId,setFlag, fl
 
   // 수신자 ID를 설정
   const handleOpenSelectReceiverModal = () => {
-    setReceiverId(1393); // 관리자 id
+    setReceiverId(1348); // 관리자 id
     setIsModalOpen(true);
   };
 

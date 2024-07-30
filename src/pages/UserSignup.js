@@ -56,7 +56,7 @@ function UserSignup() {
   //     }
       
   //   }
-  //   axios.post('${process.env.REACT_APP_API_URI}/api/mail/verify', null, code)
+  //   axios.post(`${process.env.REACT_APP_API_URI}/api/mail/verify`, null, code)
   //   .then(response => {
   //     console.log('verify success:', response.data);
   //     setVerificationok(true);
@@ -88,7 +88,7 @@ function UserSignup() {
       userPhone,
     };
     
-      axios.post('${process.env.REACT_APP_API_URI}/api/register/user', signupData)
+      axios.post(`${process.env.REACT_APP_API_URI}/api/register/user`, signupData)
       .then(response => {
         if(response.data>0){
           console.log('Signup success:', response.data);

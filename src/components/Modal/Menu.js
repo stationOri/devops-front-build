@@ -65,7 +65,7 @@ function MenuModal({ restId, onSuccess }) {
         formData.append('file', file);
       }
       try {
-        const response = await axios.post('${process.env.REACT_APP_API_URI}/api/restaurants/menu', formData, {
+        const response = await axios.post(`${process.env.REACT_APP_API_URI}/api/restaurants/menu`, formData, {
 
           headers: {
             'Content-Type': 'multipart/form-data',
