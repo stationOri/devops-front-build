@@ -19,7 +19,7 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-function SideBar({ onMenuClick, isExtended, toggleSidebar, setUserId }) {
+function SideBar({ onMenuClick, isExtended, toggleSidebar, setUserId,setFlag, flag }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("Guest");
   const [loginshow, setLoginshow] = useState(false);
@@ -61,18 +61,18 @@ function SideBar({ onMenuClick, isExtended, toggleSidebar, setUserId }) {
   },[isok])
   
   useEffect(() => {
-    const signinok = query.get("signin");
-      if (signinok === "true") {
-            try{
-              localStorage.setItem("token", token);
-            const userinfo = jwtDecode(token);
-            setUsername("Guest");
-            setSigninshow(true);
-            } catch (error) {
-              console.error("Invalid token", error);
-            }
-          }
-      else{
+    // const signinok = query.get("signin");
+    //   if (signinok === "true") {
+    //         try{
+    //           localStorage.setItem("token", token);
+    //         const userinfo = jwtDecode(token);
+    //         setUsername("Guest");
+    //         setSigninshow(true);
+    //         } catch (error) {
+    //           console.error("Invalid token", error);
+    //         }
+    //       }
+    //   else{
             try {
               const storedToken = localStorage.getItem("token");
               let userinfo=null;
@@ -98,8 +98,7 @@ function SideBar({ onMenuClick, isExtended, toggleSidebar, setUserId }) {
             } catch (error) {
               console.error("Invalid token", error);
             }
-          }
-  }, [token, setUserId]);
+  }, []);
 
   // login modal 함수
   const loginClose = () => setLoginshow(false);
@@ -145,7 +144,7 @@ function SideBar({ onMenuClick, isExtended, toggleSidebar, setUserId }) {
     <div className={`sideBarWrapper ${isExtended ? "extended" : "collapsed"}`}>
       <SigninModal signinClose={signinClose} signinshow={signinshow} />
       <SigninNaverModal naversigninClose={naversigninClose} naversigninshow={naversigninshow}/>
-      <LoginModal loginClose={loginClose} loginshow={loginshow} />
+      <LoginModal loginClose={loginClose} loginshow={loginshow} flag={flag} setFlag={setFlag}/>
 
       <div className="sideBarHeader">
         <div className="iconWrapper">

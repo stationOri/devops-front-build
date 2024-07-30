@@ -9,7 +9,6 @@ import AdminMain from "./pages/AdminMain";
 import UserMain from "./pages/UserMain";
 import { MenuModalProvider } from "./components/Modal/MenuModalContext";
 import { InputModalProvider } from "./components/Modal/InputModalContext";
-import ReservationPage from "./pages/SqsTest";
 
 function App() {
   return (
@@ -24,8 +23,6 @@ function App() {
         <Route path="/admin" element={<AdminMain />}></Route>
         <Route path="/usersignup" element={<UserSignup />}></Route>
         <Route path="/restaurantsignup" element={<RestaurantSignup />}></Route>
-        <Route path="/sqstest" element={<ReservationPage />}></Route>
-
       </Routes>
     </BrowserRouter>
     </InputModalProvider>
