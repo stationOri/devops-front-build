@@ -187,6 +187,7 @@
 .peakWrapper-first {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
   align-items: end;
   margin: 5px 0 20px;
 }
