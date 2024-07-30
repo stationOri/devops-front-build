@@ -32,11 +32,21 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
   const reviewsPerPage = 4;
 
   const openModal = () => {
-    setIsModalOpen(true);
+    if (userId !== 0) {
+      setIsModalOpen(true);
+    } else {
+      alert("빈자리 알림은 로그인을 하셔야 신청 가능합니다.")
+    }
+    
   };
 
   const openWaitingModal = () => {
-    setIsWaitingModalOpen(true);
+    if (userId !== 0) {
+      setIsWaitingModalOpen(true);
+    } else {
+      alert("웨이팅 등록은 로그인을 하셔야 가능합니다.")
+    }
+    
   };
 
   const openReceiverModal = () => {
@@ -50,7 +60,12 @@ const RestDetail = ({ userId, restId, moveToReservation }) => {
   };
 
   const moveFunc = () => {
-    moveToReservation(restId);
+    if(userId !== 0) {
+      moveToReservation(restId);
+    }else {
+      alert("예약은 로그인을 해야 가능합니다.")
+    }
+    
   };
 
   const convertDayToKorean = (day) => {
