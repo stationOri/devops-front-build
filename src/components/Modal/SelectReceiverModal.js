@@ -25,6 +25,8 @@ function SelectReceiverModal({ isOpen, onClose, receiverId, senderId }) {
       });
 
       if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Failed to send message:", errorData);
         throw new Error("Failed to send message");
       }
 
@@ -41,7 +43,7 @@ function SelectReceiverModal({ isOpen, onClose, receiverId, senderId }) {
       <div className="chat-modal-overlay">
         <div className="chat-modal-content">
           <div className="chat-modal-header">
-            <img src={AdminChatIcon} className="chat-icon"></img>
+            <img src={AdminChatIcon} className="chat-icon" alt="Chat Icon" />
             <div className="chat-header-text">궁금한 메세지를 보내세요</div>
           </div>
           <div className="chat-modal-body">
