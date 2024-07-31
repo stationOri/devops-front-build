@@ -62,7 +62,7 @@ const RestCard = ({
           <div className="rest-card-name">{RestName}</div>
           <div className="rest-card-address">{RestAddress}</div>
           <div className="rest-card-opentimes">
-            {uniqueOpentimes&&uniqueOpentimes.map((opentime, index) => (
+            {uniqueOpentimes&&uniqueOpentimes?.map((opentime, index) => (
               <div key={index}>
                 <div className="rest-card-opentime">
                   {convertDayToKorean(opentime.restDay)}: {opentime.restOpen} - {opentime.restClose}

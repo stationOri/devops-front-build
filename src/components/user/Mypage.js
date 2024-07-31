@@ -440,7 +440,7 @@ const Mypage = ({ userId, onCardClick }) => {
           <div>History and Recent Bookings</div>
           <div className="my-horizon" />
           <div className="my-page-res-content-box">
-            {currentReservations && currentReservations.map((reservation) => (
+            {currentReservations &&currentReservations.length > 0 ? currentReservations?.map((reservation) => (
               <div key={reservation.resId} className="my-res-map-box">
                 <div className="my-res-box">
                   <div>
@@ -487,7 +487,9 @@ const Mypage = ({ userId, onCardClick }) => {
                 </div>
                 <div className="my-res-horizon" />
               </div>
-            ))}
+            )): (
+              <div>No reservations found.</div> // 예약이 없을 때 보여줄 내용 추가
+            )}
           </div>
           <div className="my-page-res-pagination">
             {renderPaginationButtons()}
@@ -587,7 +589,8 @@ const Mypage = ({ userId, onCardClick }) => {
             <Loading />
           ) : (
             <div className="favorite-list">
-              {favorites.length === 0 ? (
+          
+              {favorites.length <= 0&& favorites.length === 0 ? (
                 <div className="no-favorites">찜한 식당이 없습니다.</div>
               ) : (
                 favorites
@@ -596,7 +599,7 @@ const Mypage = ({ userId, onCardClick }) => {
                     favoritesCurrentPage * favoritesPerPage
         
                   )
-                  .map((favorite) => (
+                  ?.map((favorite) => (
                     <RestCard
                       key={favorite.restId}
                       userId={userId}
@@ -644,11 +647,11 @@ const Mypage = ({ userId, onCardClick }) => {
           /> */}
           </div>
           <div className="my-review-wrap">
-          {reviews.length > 0 ? (
+          {reviews &&reviews.length > 0 ? (
               reviews.slice(
                 (reviewCurrentPage - 1) * reviewPerPage,
                 reviewCurrentPage * reviewPerPage
-              ).map((review) => (
+              )?.map((review) => (
                 <MyReviewCard key={review.reviewId} review={review} />
               ))
               ) : (
@@ -668,7 +671,7 @@ const Mypage = ({ userId, onCardClick }) => {
             <MostReservedRestaurantsChart userId={userId} />
           </div>
           <div className="my-most-card-container">
-            {mostRest && mostRest.map((rest) => (
+            {mostRest && mostRest?.map((rest) => (
               <div className="my-most-card-box" key={rest.restId}>
                 <div>
                   <img
