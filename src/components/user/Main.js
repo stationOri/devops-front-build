@@ -156,7 +156,7 @@ const Main = ({ userId, onCardClick }) => {
         />
       </div>
       <div className="hotTrendingRestWrapper">
-        <div className="hotTrendingHeader">🔥핫 트렌딩 식당🔥</div>
+        <div className="hotTrendingHeader">🔥CD 테스트입니다🔥</div>
         {trendingFoods.map((rest, index) => (
           <div key={index} className="rankingWrapper">
             <div className="rankingLeft">
