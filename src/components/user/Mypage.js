@@ -440,7 +440,7 @@ const Mypage = ({ userId, onCardClick }) => {
           <div>History and Recent Bookings</div>
           <div className="my-horizon" />
           <div className="my-page-res-content-box">
-            {currentReservations.map((reservation) => (
+            {currentReservations && currentReservations.map((reservation) => (
               <div key={reservation.resId} className="my-res-map-box">
                 <div className="my-res-box">
                   <div>
@@ -494,7 +494,7 @@ const Mypage = ({ userId, onCardClick }) => {
           </div>
         </div>
         <div className="my-waiting-container">
-          {isWaitingLoading ? (
+          {!isWaitingLoading && waiting && waiting.length > 0  ? (
             <div className="my-waiting-no">웨이팅이 없습니다.</div>
           ) : waiting ? (
             <div>
@@ -643,18 +643,16 @@ const Mypage = ({ userId, onCardClick }) => {
           /> */}
           </div>
           <div className="my-review-wrap">
-            {reviews
-              .slice(
+          {reviews.length > 0 ? (
+              reviews.slice(
                 (reviewCurrentPage - 1) * reviewPerPage,
                 reviewCurrentPage * reviewPerPage
-              )
-              .map((review) => (
-                <MyReviewCard
-                  key={review.reviewId}
-                  review={review}
-                  userId={userId}
-                />
-              ))}
+              ).map((review) => (
+                <MyReviewCard key={review.reviewId} review={review} />
+              ))
+              ) : (
+              <p>작성한 리뷰가 없습니다.</p>
+              )}
             <Pagination
               totalItems={reviews.length}
               itemsPerPage={reviewPerPage}
@@ -669,7 +667,7 @@ const Mypage = ({ userId, onCardClick }) => {
             <MostReservedRestaurantsChart userId={userId} />
           </div>
           <div className="my-most-card-container">
-            {mostRest.map((rest) => (
+            {mostRest && mostRest.map((rest) => (
               <div className="my-most-card-box" key={rest.restId}>
                 <div>
                   <img
