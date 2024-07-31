@@ -594,6 +594,7 @@ const Mypage = ({ userId, onCardClick }) => {
                   .slice(
                     (favoritesCurrentPage - 1) * favoritesPerPage,
                     favoritesCurrentPage * favoritesPerPage
+        
                   )
                   .map((favorite) => (
                     <RestCard
